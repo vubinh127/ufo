@@ -11,6 +11,11 @@
     --color-B5B4B4: #B5B4B4;
     --color-747474: #747474;
     --color-811EE2: #811EE2;
+    --color-F9F9F9: #F9F9F9;
+    --color-FF1010: #FF1010;
+    --color-8753FF: #8753FF;
+    --color-E3E3E3: #E3E3E3;
+    --color-73C877: #73C877;
 }
 
 * {
@@ -190,6 +195,10 @@ header .navbar-light .navbar-toggler svg path {
         z-index: 1050;
         padding: 20px;
         overflow-y: auto;
+    }
+
+    header .navbar .navbar-brand {
+        width: 50px;
     }
 
     header .navbar-collapse.show {
@@ -477,6 +486,48 @@ header .navbar-light .navbar-toggler svg path {
     }
 }
 
+.bg-gradient-1,
+.bg-gradient-2 {
+    position: relative;
+    z-index: 1;
+}
+
+
+.bg-gradient-1::before {
+    content: '';
+    background-image: url(../images/bg_gradient.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 405px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-gradient-2::after {
+    content: '';
+    background-image: url(../images/bg_gradient_2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 405px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-gradient-1 .container,
+.bg-gradient-2 .container {
+    position: relative;
+    z-index: 1;
+}
+
+
 /* Main */
 .block-banner {
     padding: 28px 0 0;
@@ -516,25 +567,15 @@ header .navbar-light .navbar-toggler svg path {
     margin-bottom: 68px;
 }
 
-.block-information.introduce-page {
-    position: relative;
+.block-information.introduce-page.bg-gradient-1:before{
+    top: 40%;
 }
 
-.block-information.introduce-page:before{
-    content: '';
-    background-image: url(../images/bg_gradient.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 405px;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    pointer-events: none;
+.block-information.introduce-page.bg-gradient-2:after{
+    bottom: -80%;
 }
 
-.block-information.introduce-page .container {
+.block-information.introduce-page .content {
     position: relative;
     z-index: 1;
 }
@@ -591,15 +632,17 @@ header .navbar-light .navbar-toggler svg path {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
+    position: relative;
 }
 
 .block-information .core-value .value-item {
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
     background: #fff;
     border-right: 32px;
-    padding: 13px 34px;
+    padding: 13px 29px 36px;
     text-align: center;
     border-radius: 32px;
+    height: 100%;
 }
 
 .block-information .core-value .value-item .image {
@@ -620,10 +663,15 @@ header .navbar-light .navbar-toggler svg path {
     font-size: 16px;
     color: var(--color-212121);
     font-weight: 400;
+    text-align: left;
 }
 
 .block-information .core-value .value-item .text p {
     margin-bottom: 12px;
+}
+
+.block-information .core-value .value-item .text p strong {
+    font-weight: 600;
 }
 
 
@@ -638,26 +686,10 @@ section h2 {
 
 .block-courses {
     margin-bottom: 151px;
-    position: relative;
 }
 
-.block-courses::before {
-    content: '';
-    background-image: url(../images/bg_gradient.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 405px;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.block-courses .container {
-    position: relative;
-    z-index: 1;
+.block-courses.bg-gradient-2:after {
+    bottom: -80%;
 }
 
 .block-courses .list-courses .nav {
@@ -696,17 +728,17 @@ section h2 {
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
     border-radius: 36px;
     background: var(--color-ffffff);
+    padding: 14px 14px 27px;
 }
 
 .block-courses .box-courses .single-course .image {
     margin-bottom: 19px;
     border-radius: 36px;
     max-height: 344px;
-    padding: 14px 14px 19px;
 }
 
 .block-courses .box-courses .single-course .info {
-    padding: 0px 21px 27px;
+    padding: 0px 7px 0px;
 }
 
 .block-courses .box-courses .single-course .title {
@@ -1061,8 +1093,530 @@ section h2 {
     background: var(--color-ffffff);
 }
 
+.block-our-teachers {
+    padding-bottom: 196px ;
+}
+
+.block-our-teachers .grid-our-teachers {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.block-our-teachers .teacher-card {
+    background: linear-gradient(#AE5AE3 100%, #C274F3 100%);
+    border-radius: 28px;
+    display: flex;
+    justify-content: space-between;
+    padding: 34px 23px;
+    position: relative;
+    overflow: hidden;
+    min-height: 418px;
+}
+
+.block-our-teachers .teacher-content {
+    flex: 1;
+    color: var(--color-ffffff);
+    position: relative;
+    z-index: 2;
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+.block-our-teachers .teacher-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-ffffff);
+    margin-bottom: 20px;
+    line-height: 29px;
+}
+
+.block-our-teachers .teacher-info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    max-width: 188px;
+}
+
+.block-our-teachers .teacher-info li {
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--color-ffffff);
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.block-our-teachers .teacher-info li:last-child {
+    margin-bottom: 0;
+}
+
+.block-our-teachers .teacher-subject {
+    position: absolute;
+    right: 14px;
+    bottom: 22px;
+    z-index: 1;
+}
+
+.block-our-teachers .teacher-subject span {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(11.7px);
+    border-radius: 16px;
+    padding: 12px 15px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-000000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block-our-teachers .teacher-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    height: auto;
+    z-index: 1;
+}
+
+.block-our-teachers .teacher-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-bottom-right-radius: 24px;
+}
+
+
+
+/*Khóa học*/
+
+.block-banner.courses-page {
+    margin-bottom: 0;
+}
+
+.search-form-section {
+    padding: 40px 0;
+    position: relative;
+    margin-top: -140px;
+    z-index: 5;
+}
+
+.search-form-wrapper {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.12);
+    padding: 48px 42px;
+    max-width: 1062px;
+    margin: 0 auto 100px;
+}
+
+.search-form .form-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-212121);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.search-form .custom-select {
+    background-color: var(--color-F9F9F9);
+    border-radius: 16px;
+    padding: 20px 17px 21px 18px;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--color-8B8B8B);
+    font-weight: 400;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.94275 0.292989C1.55222 -0.0975299 0.919062 -0.0975278 0.52854 0.292994L0.29285 0.528685C-0.0976753 0.91921 -0.0976743 1.55238 0.292852 1.9429L7.12825 8.77825C7.51877 9.16877 8.15194 9.16877 8.54246 8.77824L15.3779 1.94279C15.7684 1.55226 15.7684 0.919095 15.3779 0.528573L15.1422 0.292879C14.7516 -0.0976434 14.1185 -0.0976412 13.7279 0.292883L8.54246 5.47839C8.15193 5.86891 7.51877 5.86892 7.12825 5.4784L1.94275 0.292989Z' fill='%238B8B8B'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px 10px;
+}
+
+.search-form .custom-select:focus {
+    border-color: #8433D3;
+    box-shadow: 0 0 0 0.2rem rgba(132, 51, 211, 0.15);
+    outline: 0;
+    color: var(--color-1B115A);
+}
+
+.search-form .custom-select option {
+    color: var(--color-1B115A);
+}
+
+.search-form .btn-search {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    border-radius: 12px;
+    padding: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 61px;
+    width: 187px;
+    text-align: center;
+}
+
+
+.search-form .btn-search:active {
+    transform: translateY(0);
+}
+
+.courses-section {
+    padding-bottom: 156px ;
+}
+
+.courses-section .grid-courses {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.courses-section .grid-courses .course-item {
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 36px;
+    background: var(--color-ffffff);
+    padding: 14px 14px 22px;
+}
+
+.courses-section .grid-courses .course-item .image {
+    margin-bottom: 21px;
+    border-radius: 36px;
+    max-height: 344px;
+    position: relative;
+}
+
+.courses-section .grid-courses .course-item .overlay {
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.courses-section .grid-courses .course-item .overlay .student-count {
+    padding: 10px 11px;
+    font-size: 18px;
+    color: var(--color-ffffff);
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(11.7px);
+}
+
+.courses-section .grid-courses .course-item .overlay .sale {
+    padding: 10px 11px;
+    font-size: 18px;
+    color: var(--color-ffffff);
+    font-weight: 700;
+    line-height: 22px;
+    border-radius: 16px;
+    background: var(--color-FF1010);
+    backdrop-filter: blur(11.7px);
+}
+
+.courses-section .grid-courses .course-item .info {
+    padding: 0px 10px 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.courses-section .grid-courses .course-item .info .title {
+    margin-bottom: 19px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang {
+    padding: 11px 12px;
+    color: var(--color-ffffff);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    width: max-content;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.lang.kr {
+    background: var(--color-8753FF);
+}
+
+.lang.eng {
+    background: var(--color-73C877);
+}
+
+.courses-section .grid-courses .course-item .info .teacher {
+    background: var(--color-E3E3E3);
+    color: var(--color-1B115A);
+    padding: 11px 12px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    width: max-content;
+    border-radius: 10px;
+}
+
+.courses-section .grid-courses .course-item .info .skill p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    color: var(--color-1B115A);
+    margin-bottom: 12px;
+}
+
+
+.courses-section .grid-courses .course-item .info .skill ul {
+    list-style: none;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--color-8B8B8B);
+    padding: 0;
+}
+
+.courses-section .grid-courses .course-item .info .skill li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 28px;
+}
+
+.courses-section .grid-courses .course-item .info .skill li:before {
+    content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAxOSAxOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggb3BhY2l0eT0iMC4yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIuMjc3NjkgOC4xMjIxN0MyLjgxNDY5IDcuNTg2MTcgMy4yMjc2OSA2LjU2MDE3IDMuMjEyNjkgNS44MDIxN0MzLjIwNTE2IDUuNDQ0MjggMy4yNzAyMiA1LjA4ODU4IDMuNDAzOTMgNC43NTY1M0MzLjUzNzY1IDQuNDI0NDggMy43MzcyNSA0LjEyMjk2IDMuOTkwNjkgMy44NzAxN0M0LjI1MzI1IDMuNjA2OTQgNC41NjgyNSAzLjQwMTkgNC45MTUyMyAzLjI2ODM4QzUuMjYyMjIgMy4xMzQ4NiA1LjYzMzQxIDMuMDc1ODQgNi4wMDQ2OSAzLjA5NTE3QzYuNzE4NjkgMy4xMzExNyA3LjYyMDY5IDIuNzg1MTcgOC4xMjQ2OSAyLjI3OTE3QzguNjIzNDcgMS43ODA4OCA5LjI5OTY2IDEuNTAwOTggMTAuMDA0NyAxLjUwMDk4QzEwLjcwOTcgMS41MDA5OCAxMS4zODU5IDEuNzgwODggMTEuODg0NyAyLjI3OTE3QzEyLjM4OTcgMi43ODQxNyAxMy4yOTA3IDMuMTMxMTcgMTQuMDA0NyAzLjA5NTE3QzE0LjM3NjEgMy4wNzU3IDE0Ljc0NzUgMy4xMzQ2NSAxNS4wOTQ3IDMuMjY4MTdDMTUuNDQxOSAzLjQwMTcgMTUuNzU3IDMuNjA2ODEgMTYuMDE5NyAzLjg3MDE3QzE2LjI3MzEgNC4xMjMxNiAxNi40NzI2IDQuNDI0ODggMTYuNjA2MSA0Ljc1NzExQzE2LjczOTcgNS4wODkzNCAxNi44MDQ1IDUuNDQ1MTkgMTYuNzk2NyA1LjgwMzE3QzE2Ljc4MTcgNi41NjAxNyAxNy4xOTY3IDcuNTg3MTcgMTcuNzMxNyA4LjEyMzE3QzE4LjIzIDguNjIzMzMgMTguNTA5MyA5LjMwMDkgMTguNTA4MSAxMC4wMDY5QzE4LjUwNyAxMC43MTI5IDE4LjIyNTYgMTEuMzg5NiAxNy43MjU3IDExLjg4ODJDMTcuMTk3NyAxMi40MTYyIDE2LjgxMTcgMTMuMzI2MiAxNi43OTc3IDE0LjA3MjJDMTYuNzg0NyAxNC43NTg2IDE2LjUwNTggMTUuNDEzMyAxNi4wMTk3IDE1Ljg5ODJDMTUuNTUzOCAxNi4zNjUgMTQuOTMwNSAxNi42NDE0IDE0LjI3MTcgMTYuNjczMkMxMy40ODA3IDE2LjcxMzIgMTIuNDQ0NyAxNy4xNzMyIDExLjg4NDcgMTcuNzMzMkMxMS4zODU5IDE4LjIzMTUgMTAuNzA5NyAxOC41MTE0IDEwLjAwNDcgMTguNTExNEM5LjI5OTY2IDE4LjUxMTQgOC42MjM0NyAxOC4yMzE1IDguMTI0NjkgMTcuNzMzMkM3LjU2NDY5IDE3LjE3MzIgNi41Mjk2OSAxNi43MTMyIDUuNzM4NjkgMTYuNjczMkM1LjA3OTg4IDE2LjY0MTQgNC40NTY2MSAxNi4zNjUgMy45OTA2OSAxNS44OTgyQzMuNTA1MDggMTUuNDEzOCAzLjIyNjIgMTQuNzU5OSAzLjIxMjY5IDE0LjA3NDJDMy4xOTc2OSAxMy4zMjYyIDIuODA2NjkgMTIuNDEwMiAyLjI3NzY5IDExLjg4MTJDMS43Nzk3IDExLjM4MjQgMS41IDEwLjcwNjUgMS41IDEwLjAwMTdDMS41IDkuMjk2ODggMS43Nzk3IDguNjIwOSAyLjI3NzY5IDguMTIyMTdaIiBmaWxsPSIjMTRBRTVDIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMy4xOTc2OSAzLjA3ODE5QzMuMDM5NTMgMy4yMzU3OCAyLjkxNDk5IDMuNDIzODMgMi44MzE2MyAzLjYzMDk2QzIuNzQ4MjYgMy44MzgwOCAyLjcwNzggNC4wNTk5NyAyLjcxMjY5IDQuMjgzMTlDMi43MjI2OSA0LjgzMzE5IDIuNTgyNjkgNS40MTUxOSAyLjM3OTY5IDUuOTE5MTlDMi4xNzY2OSA2LjQyNDE5IDEuODczNjkgNi45NDExOSAxLjQ4NTY5IDcuMzMwMTlDMS4xNzUxOCA3LjY0MTQgMS4wMDA3OSA4LjA2MzA3IDEuMDAwNzkgOC41MDI2OUMxLjAwMDc5IDguOTQyMzIgMS4xNzUxOCA5LjM2Mzk5IDEuNDg1NjkgOS42NzUxOUMyLjE5NTY5IDEwLjM4NjIgMi42OTE2OSAxMS41NDgyIDIuNzEyNjkgMTIuNTU0MkMyLjcyMDU5IDEyLjk3MzggMi44ODc2OSAxMy4zNzQ3IDMuMTgwMTMgMTMuNjc1N0MzLjQ3MjU4IDEzLjk3NjcgMy44Njg1IDE0LjE1NTIgNC4yODc2OSAxNC4xNzUyQzQuODM3NjkgMTQuMjAyMiA1LjQxNjY5IDE0LjM2OTIgNS45MjQ2OSAxNC41OTUyQzYuNDMxNjkgMTQuODIwMiA2Ljk0MzY5IDE1LjEzNzIgNy4zMzI2OSAxNS41MjYyQzcuNjQzOSAxNS44MzY3IDguMDY1NTcgMTYuMDExMSA4LjUwNTE5IDE2LjAxMTFDOC45NDQ4MiAxNi4wMTExIDkuMzY2NDkgMTUuODM2NyA5LjY3NzY5IDE1LjUyNjJDMTAuMDY2NyAxNS4xMzcyIDEwLjU3NzcgMTQuODIwMiAxMS4wODU3IDE0LjU5NDJDMTEuNTkzNyAxNC4zNjkyIDEyLjE3MjcgMTQuMjAyMiAxMi43MjI3IDE0LjE3NTJDMTMuMTQyMyAxNC4xNTU0IDEzLjUzODYgMTMuOTc2NyAxMy44MzEyIDEzLjY3NTJDMTQuMTIzNyAxMy4zNzM3IDE0LjI5MDUgMTIuOTcyMiAxNC4yOTc3IDEyLjU1MjJDMTQuMzE3NyAxMS41NTAyIDE0LjgwNjcgMTAuMzkzMiAxNS41MTc3IDkuNjgyMTlDMTUuNjcyNiA5LjUyODIyIDE1Ljc5NTcgOS4zNDUyNSAxNS44Nzk5IDkuMTQzNzJDMTUuOTY0IDguOTQyMTkgMTYuMDA3NyA4LjcyNjA1IDE2LjAwODQgOC41MDc2NEMxNi4wMDkgOC4yODkyMyAxNS45NjY2IDguMDcyODQgMTUuODgzNiA3Ljg3MDgxQzE1LjgwMDcgNy42Njg3OCAxNS42Nzg3IDcuNDg1MDggMTUuNTI0NyA3LjMzMDE5QzE1LjEzNjcgNi45NDIxOSAxNC44MzQ3IDYuNDI1MTkgMTQuNjMwNyA1LjkyMDE5QzE0LjQyNjcgNS40MTUxOSAxNC4yODY3IDQuODMzMTkgMTQuMjk3NyA0LjI4MzE5QzE0LjMwMjUgNC4wNTk5IDE0LjI2MTggMy44Mzc5NyAxNC4xNzgzIDMuNjMwODRDMTQuMDk0OCAzLjQyMzcxIDEzLjk3IDMuMjM1NyAxMy44MTE3IDMuMDc4MTlDMTMuNjQ4MSAyLjkxMzc3IDEzLjQ1MTcgMi43ODU2OSAxMy4yMzUzIDIuNzAyMjlDMTMuMDE4OSAyLjYxODkgMTIuNzg3MyAyLjU4MjA2IDEyLjU1NTcgMi41OTQxOUMxMS41NTk3IDIuNjQ0MTkgMTAuMzgyNyAyLjE5MjE5IDkuNjc3NjkgMS40ODcxOUM5LjM2NjQ5IDEuMTc2NjcgOC45NDQ4MiAxLjAwMjI5IDguNTA1MTkgMS4wMDIyOUM4LjA2NTU3IDEuMDAyMjkgNy42NDM5IDEuMTc2NjcgNy4zMzI2OSAxLjQ4NzE5QzYuNjI3NjkgMi4xOTIxOSA1LjQ1MDY5IDIuNjQ0MTkgNC40NTQ2OSAyLjU5NDE5QzQuMjIyOTIgMi41ODE5MiAzLjk5MTE2IDIuNjE4NjggMy43NzQ1NiAyLjcwMjA4QzMuNTU3OTYgMi43ODU0OSAzLjM2MTM5IDIuOTEzNjUgMy4xOTc2OSAzLjA3ODE5Wk0xLjcxMjY5IDQuMzAxMTlDMS43Mjc2OSA1LjA1OTE5IDEuMzE0NjkgNi4wODYxOSAwLjc3NzY5MyA2LjYyMjE5QzAuMjc5NzA0IDcuMTIwOTIgMCA3Ljc5NjkgMCA4LjUwMTY5QzAgOS4yMDY0OCAwLjI3OTcwNCA5Ljg4MjQ2IDAuNzc3NjkzIDEwLjM4MTJDMS4zMDc2OSAxMC45MTAyIDEuNjk3NjkgMTEuODI2MiAxLjcxMjY5IDEyLjU3MzJDMS43MjY2OSAxMy4yMzUyIDEuOTg1NjkgMTMuODkzMiAyLjQ5MDY5IDE0LjM5ODJDMi45NTY2MSAxNC44NjUxIDMuNTc5ODggMTUuMTQxNCA0LjIzODY5IDE1LjE3MzJDNS4wMjk2OSAxNS4yMTMyIDYuMDY1NjkgMTUuNjcyMiA2LjYyNTY5IDE2LjIzMzJDNy4xMjQ0MiAxNi43MzEyIDcuODAwNCAxNy4wMTA5IDguNTA1MTkgMTcuMDEwOUM5LjIwOTk4IDE3LjAxMDkgOS44ODU5NiAxNi43MzEyIDEwLjM4NDcgMTYuMjMzMkMxMC45NDQ3IDE1LjY3MjIgMTEuOTgwNyAxNS4yMTMyIDEyLjc3MTcgMTUuMTczMkMxMy40MzA1IDE1LjE0MTQgMTQuMDUzOCAxNC44NjUxIDE0LjUxOTcgMTQuMzk4MkMxNS4wMDU0IDEzLjkxMzEgMTUuMjg0IDEzLjI1ODUgMTUuMjk2NyAxMi41NzIyQzE1LjMxMTcgMTEuODI1MiAxNS42OTY3IDEwLjkxNjIgMTYuMjI1NyAxMC4zODgyQzE2LjcyNTkgOS44ODk1OCAxNy4wMDc1IDkuMjEyNjkgMTcuMDA4NiA4LjUwNjQzQzE3LjAwOTggNy44MDAxOCAxNi43MzAzIDcuMTIyNCAxNi4yMzE3IDYuNjIyMTlDMTUuNjk1NyA2LjA4NjE5IDE1LjI4MTcgNS4wNjAxOSAxNS4yOTc3IDQuMzAyMTlDMTUuMzA1NCAzLjk0NDE0IDE1LjI0MDQgMy41ODgyNSAxNS4xMDY3IDMuMjU2MDJDMTQuOTcyOSAyLjkyMzc4IDE0Ljc3MzMgMi42MjIxIDE0LjUxOTcgMi4zNjkxOUMxNC4yNTcgMi4xMDU4MyAxMy45NDE5IDEuOTAwNzIgMTMuNTk0NyAxLjc2NzE5QzEzLjI0NzUgMS42MzM2NyAxMi44NzYxIDEuNTc0NzIgMTIuNTA0NyAxLjU5NDE5QzExLjc5MDcgMS42MzAxOSAxMC44ODk3IDEuMjg0MTkgMTAuMzg0NyAwLjc3ODE5MkM5Ljg4NTkyIDAuMjc5ODk4IDkuMjA5NzMgMCA4LjUwNDY5IDBDNy43OTk2NiAwIDcuMTIzNDcgMC4yNzk4OTggNi42MjQ2OSAwLjc3ODE5MkM2LjEyMDY5IDEuMjg0MTkgNS4yMTg2OSAxLjYzMDE5IDQuNTA0NjkgMS41OTQxOUM0LjEzMzQxIDEuNTc0ODcgMy43NjIyMiAxLjYzMzg4IDMuNDE1MjMgMS43Njc0QzMuMDY4MjUgMS45MDA5MiAyLjc1MzI1IDIuMTA1OTYgMi40OTA2OSAyLjM2OTE5QzIuMjM3MjUgMi42MjE5OCAyLjAzNzY1IDIuOTIzNSAxLjkwMzkzIDMuMjU1NTZDMS43NzAyMiAzLjU4NzYxIDEuNzA1MTYgMy45NDMzMSAxLjcxMjY5IDQuMzAxMTlaIiBmaWxsPSIjMTRBRTVDIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTEuMjk3OSA1LjU2NTIyQzExLjM1NTIgNS41OTcxMyAxMS40MDU4IDUuNjQwMDMgMTEuNDQ2NiA1LjY5MTQ4QzExLjQ4NzQgNS43NDI5MiAxMS41MTc3IDUuODAxOSAxMS41MzU3IDUuODY1MDRDMTEuNTUzNyA1LjkyODE5IDExLjU1OTEgNS45OTQyNiAxMS41NTE2IDYuMDU5NDlDMTEuNTQ0MSA2LjEyNDcyIDExLjUyMzggNi4xODc4MyAxMS40OTE4IDYuMjQ1MjJMOC43MTQ4NSAxMS4yNDUyQzguNjgyOTQgMTEuMzAyNiA4LjY0MDA0IDExLjM1MzEgOC41ODg1OSAxMS4zOTRDOC41MzcxNSAxMS40MzQ4IDguNDc4MTcgMTEuNDY1IDguNDE1MDMgMTEuNDgzMUM4LjM1MTg4IDExLjUwMTEgOC4yODU4MSAxMS41MDY1IDguMjIwNTggMTEuNDk4OUM4LjE1NTM1IDExLjQ5MTQgOC4wOTIyNCAxMS40NzExIDguMDM0ODUgMTEuNDM5MkM3Ljk3NzQ2IDExLjQwNzMgNy45MjY5MiAxMS4zNjQ0IDcuODg2MTEgMTEuMzEzQzcuODQ1MzEgMTEuMjYxNSA3LjgxNTAzIDExLjIwMjUgNy43OTcwMiAxMS4xMzk0QzcuNzc5IDExLjA3NjMgNy43NzM2IDExLjAxMDIgNy43ODExMiAxMC45NDVDNy43ODg2NCAxMC44Nzk3IDcuODA4OTQgMTAuODE2NiA3Ljg0MDg1IDEwLjc1OTJMMTAuNjE3OCA1Ljc1OTIyQzEwLjY0OTggNS43MDE4MyAxMC42OTI3IDUuNjUxMjkgMTAuNzQ0MSA1LjYxMDQ4QzEwLjc5NTUgNS41Njk2NyAxMC44NTQ1IDUuNTM5NCAxMC45MTc3IDUuNTIxMzhDMTAuOTgwOCA1LjUwMzM3IDExLjA0NjkgNS40OTc5NyAxMS4xMTIxIDUuNTA1NDlDMTEuMTc3NCA1LjUxMzAxIDExLjI0MDUgNS41MzMzMSAxMS4yOTc5IDUuNTY1MjJaIiBmaWxsPSIjMTRBRTVDIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNS4xMDk3MSA4LjQ2NzI1QzUuMTkyNTQgOC4zNjM5NCA1LjMxMjk3IDguMjk3NzEgNS40NDQ1OCA4LjI4MzA5QzUuNTc2MTggOC4yNjg0NyA1LjcwODIxIDguMzA2NjQgNS44MTE3MSA4LjM4OTI1TDguNTg5NzEgMTAuNjExMkM4LjY5MzI3IDEwLjY5NDEgOC43NTk2NyAxMC44MTQ4IDguNzc0MyAxMC45NDY2QzguNzg4OTMgMTEuMDc4NCA4Ljc1MDU5IDExLjIxMDcgOC42Njc3MSAxMS4zMTQyQzguNTg0ODMgMTEuNDE3OCA4LjQ2NDIgMTEuNDg0MiA4LjMzMjM2IDExLjQ5ODhDOC4yMDA1MiAxMS41MTM1IDguMDY4MjcgMTEuNDc1MSA3Ljk2NDcxIDExLjM5MjJMNS4xODc3MSA5LjE3MTI1QzUuMTM2NDEgOS4xMzAyMiA1LjA5MzcgOS4wNzk0OSA1LjA2MjAxIDkuMDIxOTVDNS4wMzAzMyA4Ljk2NDQxIDUuMDEwMjkgOC45MDEyIDUuMDAzMDUgOC44MzU5MUM0Ljk5NTgxIDguNzcwNjMgNS4wMDE1IDguNzA0NTUgNS4wMTk4IDguNjQxNDdDNS4wMzgxIDguNTc4MzggNS4wNjg2NSA4LjUxOTUyIDUuMTA5NzEgOC40NjgyNSIgZmlsbD0iIzE0QUU1QyIvPgo8L3N2Zz4K");
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.courses-section .grid-courses .course-item .price {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.courses-section .grid-courses .course-item .price p {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--color-1B115A);
+    line-height: 54px;
+}
+.courses-section .grid-courses .course-item .price p span {
+    font-size: 23px;
+    line-height: 1;
+}
+
+.courses-section .grid-courses .course-item .price p.flash-sale  {
+    color: var(--color-8B8B8B);
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.courses-section .grid-courses .course-item .price p.flash-sale span{
+    font-size: 14px;
+    line-height: 1;
+}
+
+.courses-section.bg-gradient-2:after{
+    bottom: -60%;
+}
+
+.courses-section.detail-course-page {
+    background: linear-gradient(180deg, #E4D7FF 0%, #ffffff 100%);
+    padding: 46px 0 151px;
+}
+
+.block-banner.detail-course-page {
+    margin-bottom: 52px;
+}
+
+.block-detail-course nav {
+    margin-bottom: 41px;
+}
+
+.block-detail-course nav .breadcrumb-item,
+.block-detail-course nav .breadcrumb-item a{
+    color: var(--color-8B8B8B);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.block-detail-course nav .breadcrumb-item:not(:first-child) {
+    padding-left: 17px;
+}
+
+.block-detail-course nav .breadcrumb-item.active {
+    color: var(--color-000000);
+    font-weight: 700;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjI5Mjk4NyAxMy43MjhDLTAuMDk3NTMxOCAxNC4xMTg2IC0wLjA5NzUyOTcgMTQuNzUxNyAwLjI5Mjk5MiAxNS4xNDIyTDAuNTI4NjgyIDE1LjM3NzlDMC45MTkyMDggMTUuNzY4NSAxLjU1MjM3IDE1Ljc2ODQgMS45NDI5IDE1LjM3NzlMOC43NzgyNSA4LjU0MjUzQzkuMTY4NzcgOC4xNTIgOS4xNjg3NyA3LjUxODg0IDguNzc4MjQgNy4xMjgzMkwxLjk0Mjc5IDAuMjkyOTE5QzEuNTUyMjYgLTAuMDk3NjAzOCAwLjkxOTA5NSAtMC4wOTc2MDE3IDAuNTI4NTcyIDAuMjkyOTI0TDAuMjkyODc5IDAuNTI4NjE5Qy0wLjA5NzY0MzYgMC45MTkxNDQgLTAuMDk3NjQxNSAxLjU1MjMxIDAuMjkyODgzIDEuOTQyODNMNS40NzgzOSA3LjEyODMyQzUuODY4OTEgNy41MTg4NCA1Ljg2ODkyIDguMTUyIDUuNDc4NCA4LjU0MjUzTDAuMjkyOTg3IDEzLjcyOFoiIGZpbGw9IiM4QjhCOEIiLz4KPC9zdmc+Cg==");
+    padding-right: 17px;
+}
+
+.block-detail-course .title{
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    font-size: 40px;
+    line-height: 48px;
+    color: var(--color-1B115A);
+    font-weight: 600;
+    margin-bottom: 36px;
+}
+
+.block-detail-course .nav-link {
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 500;
+    color: var(--color-8B8B8B);
+    border-radius: 0;
+    padding: 10px 0;
+    margin-right: 40px;
+}
+
+.block-detail-course .nav-link.active {
+    color: var(--color-1B115A);
+    border-bottom: 1px solid var(--color-1B115A);
+    background: none;
+    font-weight: 600;
+}
+
+.block-detail-course .container {
+    gap: 75px;
+}
+
+.sign-up-block {
+    max-width: 490px;
+    flex-shrink: 0;
+    border-radius: 36px;
+}
+
+.sign-up-block .course-detail-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sign-up-block .card-inner {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+}
+
+.sign-up-block .course-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-1B115A);
+    margin-bottom: 29px;
+    padding-left: 14px;
+    border-left: 3px solid var(--color-8753FF);
+    line-height: 39px;
+}
+
+.sign-up-block .course-info-box {
+    background: #F8F8F8;
+    border-radius: 19px;
+    padding: 24px 25px;
+    margin-bottom: 28px;
+}
+
+.sign-up-block .info-item {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.sign-up-block .info-item:last-child {
+    margin-bottom: 0;
+}
+
+.sign-up-block .info-item .label {
+    font-size: 20px;
+    color: var(--color-8B8B8B);
+    font-weight: 400;
+    flex-shrink: 0;
+    margin-right: 5px;
+    line-height: 24px;
+}
+
+.sign-up-block .info-item .value {
+    font-size: 20px;
+    color: var(--color-000000);
+    font-weight: 400;
+}
+
+.sign-up-block .course-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 31px;
+    border-top: 1px solid var(--color-E4E7ED);
+    margin-bottom: 23px;
+}
+
+.sign-up-block .price-label {
+    font-size: 20px;
+    color: var(--color-8B8B8B);
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.sign-up-block .price-value {
+    font-size: 24px;
+    color: var(--color-1B115A);
+    font-weight: 500;
+    line-height: 29px;
+}
+
+.sign-up-block .course-note {
+    font-size: 15px;
+    color: var(--color-1B115A);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.sign-up-block .btn-register {
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+@media (max-width: 1200px) {
+    .block-teachers .list-teacher {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 
 @media (max-width: 992px) {
+    .bg-gradient-1::before,
+    .bg-gradient-2::after {
+        width: 250px;
+        height: auto;
+    }
+
     .block-banner,
     .block-information,
     .block-courses{
@@ -1131,6 +1685,35 @@ section h2 {
     .block-information .list-number {
         flex-direction: column;
     }
+
+    .block-information .core-value {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .block-our-teachers .grid-our-teachers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .search-form-section {
+        margin-top: -40px;
+    }
+
+    .search-form-wrapper {
+        padding: 24px;
+    }
+
+    .search-form-wrapper .btn-search {
+        width: 100%;
+    }
+
+    .courses-section .grid-courses {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .courses-section .grid-courses .course-item .price {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1184,6 +1767,75 @@ section h2 {
     .block-news .news-large {
         height: 280px;
     }
+
+    .search-form-section {
+        margin-top: 0;
+        padding: 30px 0;
+    }
+
+    .search-form-wrapper {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .search-form .form-label {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .search-form .custom-select {
+        padding: 12px 40px 12px 14px;
+        font-size: 14px;
+    }
+
+    .search-form .btn-search {
+        font-size: 16px;
+        padding: 12px 20px;
+        height: 48px;
+        margin-top: 12px;
+    }
+
+    .sign-up-block .card-inner {
+        padding: 32px 24px;
+    }
+
+    .sign-up-block  .course-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+        padding-left: 12px;
+        border-left-width: 3px;
+    }
+
+    .sign-up-block .course-info-box {
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+
+    .sign-up-block .info-item .label {
+        font-size: 15px;
+        min-width: 100px;
+    }
+
+    .sign-up-block .info-item .value {
+        font-size: 15px;
+    }
+
+    .sign-up-block .price-label {
+        font-size: 16px;
+    }
+
+    .sign-up-block .price-value {
+        font-size: 24px;
+    }
+
+    .sign-up-block .course-note {
+        font-size: 14px;
+    }
+
+    .sign-up-block .btn-register {
+        font-size: 16px;
+        padding: 14px 24px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1215,5 +1867,36 @@ section h2 {
 
     .block-news .news-horizontal h4 {
         font-size: 15px;
+    }
+
+    .sign-up-block .card-inner {
+        padding: 24px 20px;
+    }
+
+    .sign-up-block .course-title {
+        font-size: 24px;
+    }
+
+    .sign-up-block .course-info-box {
+        padding: 16px;
+    }
+
+    .sign-up-block .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 12px;
+    }
+
+    .sign-up-block .info-item .label {
+        margin-bottom: 4px;
+        font-size: 14px;
+    }
+
+    .sign-up-block .info-item .value {
+        font-size: 14px;
+    }
+
+    .sign-up-block .price-value {
+        font-size: 22px;
     }
 }
