@@ -5,7 +5,6 @@ $(document).ready(function() {
         }
     });
 
-    // Đóng menu khi click vào close button area
     $('.navbar-collapse').on('click', function(e) {
         const offset = $(this).offset();
         const width = $(this).outerWidth();
@@ -37,4 +36,22 @@ var swiperBanner = new Swiper(".banner-swiper", {
     pagination: {
         el: ".swiper-pagination",
     },
+});
+
+var swiperPartner = new Swiper(".partner-slide", {
+    spaceBetween: 43,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    slidesPerView: 2,
+    loop: true,
+    breakpoints: {
+        768: {
+            slidesPerView: 4,
+        },
+        992: {
+            slidesPerView: 7,
+        },
+    }
 });
