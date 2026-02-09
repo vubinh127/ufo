@@ -1882,7 +1882,8 @@ nav.custom-pagination .pagination .page-item.active a {
     justify-content: center;
 }
 
-.block-banner.news-page .banner .text h1 {
+.block-banner.news-page .banner .text h1,
+.block-banner.news-page .banner-sp.text h1 {
     font-size: 40px;
     line-height: 48px;
     font-weight: 600;
@@ -1890,7 +1891,8 @@ nav.custom-pagination .pagination .page-item.active a {
     color: var(--color-ffffff);
 }
 
-.block-banner.news-page .banner .text p {
+.block-banner.news-page .banner .text p,
+.block-banner.news-page .banner-sp.text p{
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -1958,6 +1960,7 @@ nav.custom-pagination .pagination .page-item.active a {
 
 .block-events .events-grid .event-item {
     padding-bottom: 20px;
+    background: var(--color-ffffff);
     border-bottom: 1px solid var(--color-E4E7ED);
 }
 
@@ -2005,6 +2008,14 @@ nav.custom-pagination .pagination .page-item.active a {
     color: var(--color-8B8B8B);
     font-size: 14px;
     font-weight: 400;
+}
+
+.block-events.bg-gradient-1:before {
+    top: -20%
+}
+
+.block-events.bg-gradient-2:after {
+    bottom: -40%
 }
 
 .block-detail-event {
@@ -2080,30 +2091,17 @@ nav.custom-pagination .pagination .page-item.active a {
     display: block;
 }
 
+@media (max-width: 1440px) {
+    .bg-gradient-1::before,
+    .bg-gradient-2::after {
+        display: none;
+    }
+}
 
 
 @media (max-width: 1200px) {
     .block-teachers .list-teacher {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-
-@media (max-width: 992px) {
-    .bg-gradient-1::before,
-    .bg-gradient-2::after {
-        width: 250px;
-        height: auto;
-    }
-
-    .block-banner,
-    .block-information,
-    .block-courses{
-        margin-bottom: 60px;
-    }
-
-    .block-teachers {
-        padding-bottom: 60px ;
     }
 
     .block-information .content,
@@ -2116,13 +2114,28 @@ nav.custom-pagination .pagination .page-item.active a {
         padding-left: var(--bs-gutter-x, .75rem);
         gap: 10px;
     }
+}
+
+
+@media (max-width: 992px) {
+
+
+    .block-banner,
+    .block-information,
+    .block-courses{
+        margin-bottom: 60px;
+    }
+
+    .block-teachers {
+        padding-bottom: 60px ;
+    }
 
     .block-information .content .image {
         width: 100%;
     }
 
     .block-courses .box-courses {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
     .block-teachers .list-teacher {
@@ -2204,6 +2217,33 @@ nav.custom-pagination .pagination .page-item.active a {
     .block-contact .form-contact {
         margin-top: 50px;
     }
+
+    .block-events .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .block-events .events-grid .event-item .image {
+        height: 150px;
+    }
+
+    .block-banner.news-page .banner-sp.text {
+        text-align: center;
+    }
+
+    .block-banner.news-page .banner-sp.text h1 {
+        color: var(--color-1B115A);
+    }
+
+    .block-banner.news-page .banner-sp.text p {
+        color: var(--color-212121);
+    }
+
+    .block-banner.news-page .search-pill,
+    .block-banner.news-page .banner-sp.text .btn {
+        width: 100%;
+    }
+
+
 }
 
 @media (max-width: 768px) {
@@ -2388,5 +2428,9 @@ nav.custom-pagination .pagination .page-item.active a {
 
     .sign-up-block .price-value {
         font-size: 22px;
+    }
+
+    .block-events .events-grid .event-item .image {
+        height: 120px;
     }
 }
