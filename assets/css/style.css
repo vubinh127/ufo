@@ -1118,8 +1118,15 @@ section h2 {
     border-radius: 24px;
     box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.12);
     padding: 48px 42px;
-    max-width: 1062px;
     margin: 0 auto 100px;
+}
+
+.search-form-section.courses-page .search-form-wrapper {
+    max-width: 542px;
+}
+
+.search-form-section.document-page .search-form-wrapper {
+    max-width: 807px;
 }
 
 .search-form .form-label {
@@ -1172,6 +1179,7 @@ section h2 {
     height: 61px;
     width: 187px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 
