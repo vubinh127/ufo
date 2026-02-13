@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function($) {
     $('.navbar-collapse').on('click', function(e) {
         if ($(e.target).hasClass('navbar-collapse')) {
             $('.navbar-toggler').click();

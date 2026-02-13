@@ -10,17 +10,17 @@ get_header();
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="image">
-                            <img src="/assets/images/banner.png" alt="">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="image">
-                            <img src="/assets/images/banner.png" alt="">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="image">
-                            <img src="/assets/images/banner.png" alt="">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ get_header();
                 <h1>Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
             </div>
             <div class="image">
-                <img src="/assets/images/thumbnail_ufo.png" alt="">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/thumbnail_ufo.png" alt="">
             </div>
             <div class="text">
                 <h1 class="d-none d-lg-block">Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
@@ -77,7 +77,7 @@ get_header();
                         <div class="box-courses">
                             <div class="single-course">
                                 <div class="image">
-                                    <img src="/assets/images/course_1.png" alt="">
+                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
                                 </div>
                                 <div class="info">
                                     <p class="title">Sơ cấp 1</p>
@@ -89,7 +89,7 @@ get_header();
                             </div>
                             <div class="single-course">
                                 <div class="image">
-                                    <img src="/assets/images/course_2.png" alt="">
+                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_2.png" alt="">
                                 </div>
                                 <div class="info">
                                     <p class="title">Sơ cấp 2</p>
@@ -101,7 +101,7 @@ get_header();
                             </div>
                             <div class="single-course">
                                 <div class="image">
-                                    <img src="/assets/images/course_3.png" alt="">
+                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_3.png" alt="">
                                 </div>
                                 <div class="info">
                                     <p class="title">Trung cấp 1</p>
@@ -113,7 +113,7 @@ get_header();
                             </div>
                             <div class="single-course">
                                 <div class="image">
-                                    <img src="/assets/images/course_4.png" alt="">
+                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_4.png" alt="">
                                 </div>
                                 <div class="info">
                                     <p class="title">Trung cấp 2</p>
@@ -126,7 +126,7 @@ get_header();
                             </div>
                             <div class="single-course">
                                 <div class="image">
-                                    <img src="/assets/images/course_5.png" alt="">
+                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_5.png" alt="">
                                 </div>
                                 <div class="info">
                                     <p class="title">Cao cấp </p>
@@ -154,7 +154,7 @@ get_header();
             <div class="list-teacher">
                 <div class="single-teacher">
                     <div class="image">
-                        <img src="/assets/images/teacher.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher.png" alt="">
                     </div>
                     <div class="info">
                         <div class="profile">
@@ -174,7 +174,7 @@ get_header();
 
                 <div class="single-teacher">
                     <div class="image">
-                        <img src="/assets/images/teacher_2.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher_2.png" alt="">
                     </div>
                     <div class="info">
                         <div class="profile">
@@ -194,7 +194,7 @@ get_header();
 
                 <div class="single-teacher">
                     <div class="image">
-                        <img src="/assets/images/teacher_3.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher_3.png" alt="">
                     </div>
                     <div class="info">
                         <div class="profile">
@@ -214,7 +214,7 @@ get_header();
 
                 <div class="single-teacher">
                     <div class="image">
-                        <img src="/assets/images/teacher_4.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher_4.png" alt="">
                     </div>
                     <div class="info">
                         <div class="profile">
@@ -241,7 +241,7 @@ get_header();
             <div class="list-achievements">
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -253,7 +253,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -265,7 +265,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -277,7 +277,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -289,7 +289,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -301,7 +301,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -313,7 +313,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -325,7 +325,7 @@ get_header();
                 </div>
                 <div class="achievement-item">
                     <div class="image">
-                        <img src="/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
                         <div class="score">
                             <span>8.0</span>
                             IELTS
@@ -347,37 +347,37 @@ get_header();
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_1.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_1.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_2.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_2.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_3.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_3.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_4.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_4.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_5.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_5.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_6.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_6.png" alt="">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="image">
-                                <img src="/assets/images/partner_7.png" alt="">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_7.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -396,7 +396,7 @@ get_header();
                 <div class="news-featured">
                     <a href="#" class="news-item news-large">
                         <div class="news-image">
-                            <img src="/assets/images/image_new.png" alt="Tin tức nổi bật">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức nổi bật">
                         </div>
                         <div class="news-content">
                             <h3>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h3>
@@ -415,7 +415,7 @@ get_header();
                     <div class="news-small-grid">
                         <a href="#" class="news-item news-small">
                             <div class="news-image">
-                                <img src="/assets/images/image_new_2.png" alt="Tin tức">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new_2.png" alt="Tin tức">
                             </div>
                             <div class="news-content">
                                 <h4>101+ từ vựng tiếng Anh về....</h4>
@@ -434,7 +434,7 @@ get_header();
 
                         <a href="#" class="news-item news-small">
                             <div class="news-image">
-                                <img src="/assets/images/image_new_2.png" alt="Tin tức">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new_2.png" alt="Tin tức">
                             </div>
                             <div class="news-content">
                                 <h4>101+ từ vựng tiếng Anh về....</h4>
@@ -453,7 +453,7 @@ get_header();
 
                         <a href="#" class="news-item news-small">
                             <div class="news-image">
-                                <img src="/assets/images/image_new.png" alt="Tin tức">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
                             </div>
                             <div class="news-content">
                                 <h4>101+ từ vựng tiếng Anh về....</h4>
@@ -476,7 +476,7 @@ get_header();
                 <div class="news-list">
                     <a href="#" class="news-item news-horizontal">
                         <div class="news-image">
-                            <img src="/assets/images/image_new.png" alt="Tin tức">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
                         </div>
                         <div class="news-content">
                             <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
@@ -494,7 +494,7 @@ get_header();
 
                     <a href="#" class="news-item news-horizontal">
                         <div class="news-image">
-                            <img src="/assets/images/image_new.png" alt="Tin tức">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
                         </div>
                         <div class="news-content">
                             <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
@@ -512,7 +512,7 @@ get_header();
 
                     <a href="#" class="news-item news-horizontal">
                         <div class="news-image">
-                            <img src="/assets/images/image_new.png" alt="Tin tức">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
                         </div>
                         <div class="news-content">
                             <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
@@ -530,7 +530,7 @@ get_header();
 
                     <a href="#" class="news-item news-horizontal">
                         <div class="news-image">
-                            <img src="/assets/images/image_new.png" alt="Tin tức">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
                         </div>
                         <div class="news-content">
                             <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
