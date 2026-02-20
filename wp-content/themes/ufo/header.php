@@ -11,12 +11,15 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php 
+    $logo = get_field('logo', 'option');
+    ?>
 <header>
     <div class="container">
         <nav class="main-menu navbar navbar-expand-xl navbar-light justify-content-between align-items-center">
             <div class="d-flex align-items-center justify-content-between w-100">
-                <a class="navbar-brand" href="/">
-                    <img src="/assets/images/logo.png" alt=""/>
+                <a class="navbar-brand" href="<?php echo home_url(); ?>">
+                    <img src="<?php echo $logo ? $logo['url'] : get_stylesheet_directory_uri().'/assets/images/logo.png' ?>" alt=""/>
                 </a>
                 <button
                         class="navbar-toggler"
@@ -35,6 +38,8 @@
             </div>
 
             <div class="collapse navbar-collapse menu-custom justify-content-end flex-shrink-0" id="navbarNav">
+                
+                <?php ufo_menu('main-menu') ?>
                 <ul id="menu-main-menu" class="navbar-nav menu">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Trang chủ</a>
@@ -60,9 +65,13 @@
                         <a class="nav-link" href="/">Tài liệu</a>
                     </li>
                 </ul>
-                <a class="btn contact bg-8433D3" href="">
-                    Liên hệ
-                </a>
+                <?php 
+                $button_lien_he = get_field('button_lien_he', 'option');
+                if(!empty($button_lien_he)){ ?>
+                    <a class="btn contact bg-8433D3" href="<?php echo $button_lien_he['url'] ?>">
+                        Liên hệ
+                    </a>
+                <?php } ?>
             </div>
         </nav>
     </div>

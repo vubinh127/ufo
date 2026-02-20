@@ -14,7 +14,6 @@ if (!function_exists('ufo_theme_setup')) {
         register_nav_menus(
             array(
                 'main-menu' => esc_html__('Main Menu', 'ufo'),
-                'about-menu-footer' => esc_html__('Menu About Footer', 'ufo'),
             )
         );
         /**sidebar */
@@ -70,3 +69,20 @@ add_filter('upload_mimes', 'my_own_mime_types');
 
 
 //require get_template_directory() .'/inc/panigation.php';
+
+add_action('acf/init', 'my_acf_op_init');
+function my_acf_op_init() {
+
+    // Check function exists.
+    if( function_exists('acf_add_options_page') ) {
+
+        // Register options page.
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Theme General Settings'),
+            'menu_title'    => __('Theme Settings'),
+            'menu_slug'     => 'theme-general-settings',
+            'capability'    => 'edit_posts',
+            'redirect'      => false
+        ));
+    }
+}
