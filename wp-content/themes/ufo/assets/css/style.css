@@ -883,6 +883,28 @@ section h2 {
     position: relative;
     overflow: hidden;
     margin-bottom: 15px;
+    position: relative;
+}
+
+.achievement-item .image:hover .see-detail {
+    display: flex;
+}
+
+.achievement-item .image .see-detail {
+    display: none;
+    align-items: center;
+    gap: 9px;
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
+    font-size: 24px;
+    font-weight: 600;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+
 }
 
 .achievement-item .image img {
