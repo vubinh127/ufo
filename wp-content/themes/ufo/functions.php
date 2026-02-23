@@ -130,17 +130,72 @@ function register_post_type_courses() {
 }
 add_action('init', 'register_post_type_courses');
 
-function register_taxonomy_course_tag() {
+function register_taxonomy_course_category() {
 
     register_taxonomy(
-        'course_tag',
-        'courses',
+        'course_category', // slug nên đặt riêng
+        ['courses'],
         [
-            'label'        => 'Tags',
-            'rewrite'      => ['slug' => 'course-tag'],
-            'hierarchical' => false,
+            'labels' => [
+                'name' => 'Course Categories',
+                'singular_name' => 'Course Category',
+            ],
+            'public'       => true,
+            'hierarchical' => true, // giống category
+            'rewrite'      => ['slug' => 'course-category'],
             'show_in_rest' => true,
         ]
     );
 }
-add_action('init', 'register_taxonomy_course_tag');
+add_action('init', 'register_taxonomy_course_category');
+
+function register_post_type_document() {
+
+    $labels = [
+        'name'               => 'Documents',
+        'singular_name'      => 'Document',
+        'menu_name'          => 'Documents',
+        'name_admin_bar'     => 'Document',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Document',
+        'new_item'           => 'New Document',
+        'edit_item'          => 'Edit Document',
+        'view_item'          => 'View Document',
+        'all_items'          => 'All Documents',
+        'search_items'       => 'Search Documents',
+        'not_found'          => 'No documents found.',
+    ];
+
+    $args = [
+        'labels'        => $labels,
+        'public'        => true,
+        'menu_icon'     => 'dashicons-media-document',
+        'supports'      => ['title','editor','thumbnail','excerpt','revisions','author'],
+        'has_archive'   => true,
+        'rewrite'       => ['slug' => 'documents'],
+        'show_in_rest'  => true,
+        'menu_position' => 6,
+    ];
+
+    register_post_type('document', $args);
+}
+add_action('init', 'register_post_type_document');
+
+function register_taxonomy_document_category() {
+
+    register_taxonomy(
+        'document_category',
+        ['document'],
+        [
+            'labels' => [
+                'name'          => 'Document Categories',
+                'singular_name' => 'Document Category',
+            ],
+            'public'       => true,
+            'hierarchical' => true,
+            'rewrite'      => ['slug' => 'document-category'],
+            'show_in_rest' => true,
+        ]
+    );
+}
+add_action('init', 'register_taxonomy_document_category');
