@@ -86,3 +86,50 @@ function my_acf_op_init() {
         ));
     }
 }
+
+function register_post_type_courses() {
+
+    $labels = [
+        'name'               => 'Courses',
+        'singular_name'      => 'Course',
+        'menu_name'          => 'Courses',
+        'name_admin_bar'     => 'Course',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Course',
+        'new_item'           => 'New Course',
+        'edit_item'          => 'Edit Course',
+        'view_item'          => 'View Course',
+        'all_items'          => 'All Courses',
+        'search_items'       => 'Search Courses',
+        'not_found'          => 'No courses found.',
+    ];
+
+    $args = [
+        'labels'             => $labels,
+        'public'             => true,
+        'menu_icon'          => 'dashicons-welcome-learn-more',
+        'supports'           => ['title','editor','thumbnail','excerpt','revisions','author'],
+        'has_archive'        => true,
+        'rewrite'            => ['slug' => 'courses'],
+        'show_in_rest'       => true, // quan trọng để dùng Gutenberg + API
+        'menu_position'      => 5,
+    ];
+
+    register_post_type('courses', $args);
+}
+add_action('init', 'register_post_type_courses');
+
+function register_taxonomy_course_tag() {
+
+    register_taxonomy(
+        'course_tag',
+        'courses',
+        [
+            'label'        => 'Tags',
+            'rewrite'      => ['slug' => 'course-tag'],
+            'hierarchical' => false,
+            'show_in_rest' => true,
+        ]
+    );
+}
+add_action('init', 'register_taxonomy_course_tag');
