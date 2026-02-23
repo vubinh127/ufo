@@ -96,6 +96,8 @@ select:focus {
     box-shadow: unset !important;
 }
 
+/*Header */
+
 header {
     background: var(--color-ffffff);
     position: sticky;
@@ -104,41 +106,11 @@ header {
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
 }
 
-header .navbar {
-    padding: 14px 0;
-}
-
-header .navbar-nav.menu {
-    align-items: center;
-    gap: 32px;
-}
-
 header .navbar .navbar-brand {
     width: 85px;
     height: auto;
     padding: 0;
     flex-shrink: 0;
-}
-
-header .navbar .navbar-nav .nav-link {
-    display: flex;
-    align-items: center;
-    color: var(--color-1B115A);
-    padding: 0;
-    font-weight: 600;
-}
-
-header .navbar .navbar-nav .nav-link:hover ,
-header .navbar .navbar-nav .dropdown-item:hover {
-    opacity: 0.9;
-}
-
-header .navbar .navbar-nav .nav-link:hover svg path {
-    fill: var(--color-1B115A) ;
-}
-
-header .navbar .navbar-nav .nav-link:hover::after {
-    filter: brightness(0) saturate(100%) invert(55%) sepia(94%) saturate(750%) hue-rotate(10deg);
 }
 
 header a.contact {
@@ -152,16 +124,74 @@ header a.contact {
     width: 132px;
 }
 
-.dropdown-toggle::after {
-    border: none;
+header .main-menu ul.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+header .main-menu ul.menu > li {
+    position: relative;
+}
+
+header .main-menu ul.menu > li > a {
+    display: flex;
+    align-items: center;
+    color: var(--color-1B115A);
+    padding: 0;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+header .main-menu ul.menu > li > a:hover {
+    opacity: 0.9;
+}
+
+header .main-menu .menu-item-has-children > a::after {
     content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDE0IDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMS43MDcxNCAwLjI5Mjk3OEMxLjMxNjYyIC0wLjA5NzUzNzkgMC42ODM0NiAtMC4wOTc1MzQgMC4yOTI5NCAwLjI5Mjk4NUMtMC4wOTc1ODE2IDAuNjgzNTA4IC0wLjA5NzU4MDUgMS4zMTY2NyAwLjI5Mjk0MyAxLjcwNzE5TDUuOTQ5ODMgNy4zNjQwM0M2LjM0MDM1IDcuNzU0NTYgNi45NzM1MiA3Ljc1NDU1IDcuMzY0MDQgNy4zNjQwM0wxMy4wMjA5IDEuNzA3MUMxMy40MTE0IDEuMzE2NTcgMTMuNDExNCAwLjY4MzQwOSAxMy4wMjA5IDAuMjkyODg4QzEyLjYzMDQgLTAuMDk3NjMyMyAxMS45OTcyIC0wLjA5NzYzMDMgMTEuNjA2NyAwLjI5Mjg5Mkw3LjM2NDA0IDQuNTM1NTlDNi45NzM1MiA0LjkyNjExIDYuMzQwMzUgNC45MjYxMSA1Ljk0OTgzIDQuNTM1NTlMMS43MDcxNCAwLjI5Mjk3OFoiIGZpbGw9IiMxQjExNUEiLz4KPC9zdmc+Cg==");
     width: 14px;
     margin-left: 9px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-header .navbar-light .navbar-toggler:focus {
-    box-shadow: unset;
+header .main-menu .sub-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 0;
+    background: #fff;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    min-width: 180px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.12);
+    z-index: 100;
 }
+
+header .main-menu .sub-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--color-1B115A);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+header .main-menu .sub-menu li a:hover {
+    opacity: 0.9;
+    background: #f5f5f5;
+}
+
+header .main-menu .menu-item-has-children.open > .sub-menu {
+    display: block;
+}
+
 
 header .navbar-light .navbar-toggler {
     border: none;
@@ -171,21 +201,51 @@ header .navbar-light .navbar-toggler svg path {
     fill: var(--color-1B115A);
 }
 
-@media screen and (max-width: 1200px) {
-    header .navbar {
-        padding: 12px;
-    }
-
-    .navbar-nav.menu {
-        padding: 20px;
-    }
-
-    .navbar-nav.menu .dropdown-menu{
-        border: none;
-    }
-}
-
 @media screen and (max-width: 992px) {
+
+    header .navbar .navbar-brand {
+        width: 50px;
+    }
+
+    header .main-menu ul.menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    header .main-menu ul.menu > li {
+        width: 100%;
+        padding: 16px 0;
+        border-bottom: 1px solid #F0F0F0;
+    }
+
+    header .main-menu ul.menu > li > a {
+        width: 100%;
+    }
+
+    header .main-menu .sub-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding-left: 20px;
+        margin-top: 12px;
+        background: transparent;
+    }
+
+    header .main-menu .menu-item-has-children.open > .sub-menu {
+        display: block;
+    }
+
+
+    header a.contact {
+        margin-left: 0;
+        margin-top: 24px;
+        width: 100%;
+    }
+
     header .navbar-collapse {
         position: fixed;
         top: 0;
@@ -200,59 +260,10 @@ header .navbar-light .navbar-toggler svg path {
         overflow-y: auto;
     }
 
-    header .navbar .navbar-brand {
-        width: 50px;
-    }
-
     header .navbar-collapse.show {
         right: 0;
     }
 
-    header .navbar-collapse .menu-custom {
-        padding: 80px 24px 24px;
-        height: 100%;
-    }
-
-    header .navbar-nav.menu {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        width: 100%;
-    }
-
-    header .navbar-nav.menu .nav-item {
-        width: 100%;
-        padding: 16px 0;
-        border-bottom: 1px solid #F0F0F0;
-    }
-
-    header .navbar-nav.menu .nav-link {
-        width: 100%;
-        padding: 0;
-        color: var(--color-1B115A);
-    }
-
-    header .navbar-nav.menu .dropdown-menu {
-        position: static;
-        border: none;
-        box-shadow: none;
-        padding-left: 20px;
-        margin-top: 12px;
-        background: transparent;
-    }
-
-    header .navbar-nav.menu .dropdown-item {
-        padding: 10px 0;
-        color: var(--color-1B115A);
-    }
-
-    header a.contact {
-        margin-left: 0;
-        margin-top: 24px;
-        width: 100%;
-    }
-
-    /* Close button */
     header .navbar-collapse::after {
         content: '✕';
         position: absolute;
@@ -269,7 +280,6 @@ header .navbar-light .navbar-toggler svg path {
         z-index: 10;
     }
 }
-
 
 /*Footer*/
 .footer {
@@ -608,6 +618,7 @@ header .navbar-light .navbar-toggler svg path {
     line-height: 29px;
     border-radius: 12px;
     margin-top: 33px;
+    font-weight: 700;
 }
 
 .block-information .list-number {
@@ -2127,6 +2138,9 @@ nav.custom-pagination .pagination .page-item.active a {
 
 @media (max-width: 992px) {
 
+    .block-information a.btn {
+        width: 100%;
+    }
 
     .block-banner,
     .block-information,

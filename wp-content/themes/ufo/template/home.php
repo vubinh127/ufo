@@ -31,13 +31,13 @@ get_header();
 
     <section class="block-information">
         <div class="content">
-            <div class="text d-lg-none text-center">
+            <div class="text d-lg-none text-center wow animate__animated animate__fadeInRight">
                 <h1>Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
             </div>
-            <div class="image">
+            <div class="image wow animate__animated animate__fadeInLeft">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/thumbnail_ufo.png" alt="">
             </div>
-            <div class="text">
+            <div class="text animate__animated animate__fadeInRight wow">
                 <h1 class="d-none d-lg-block">Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
                 <p>Một sản phẩm thuộc tập đoàn giáo dục YBM</p>
                 <p>Các chứng chỉ ngoại ngữ như IELTS, TOPIK đang dần trở nên có sức ảnh hưởng với học sinh - sinh viên
@@ -54,9 +54,9 @@ get_header();
 
     <section class="block-courses bg-gradient-1 bg-gradient-2">
         <div class="container">
-            <h2>Khóa học của chúng tôi</h2>
+            <h2 class="wow animate__animated animate__fadeIn">Khóa học của chúng tôi</h2>
 
-            <div class="list-courses">
+            <div class="list-courses wow animate__animated animate__fadeInUp">
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-korea-tab" data-bs-toggle="pill"
@@ -150,8 +150,8 @@ get_header();
 
     <section class="block-teachers">
         <div class="container">
-            <h2>Đội ngũ giáo viên của chúng tôi</h2>
-            <div class="list-teacher">
+            <h2 class="wow animate__animated animate__fadeIn">Đội ngũ giáo viên của chúng tôi</h2>
+            <div class="list-teacher wow animate__animated animate__slideInUp">
                 <div class="single-teacher">
                     <div class="image">
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher.png" alt="">
@@ -237,8 +237,8 @@ get_header();
 
     <section class="block-achievements">
         <div class="container">
-            <h2>Bảng thành tích của học viên UFO</h2>
-            <div class="list-achievements">
+            <h2 class="wow animate__animated animate__fadeIn">Bảng thành tích của học viên UFO</h2>
+            <div class="list-achievements wow animate__animated animate__bounceInUp">
                 <div class="achievement-item">
                     <div class="image">
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
@@ -389,11 +389,11 @@ get_header();
 
     <section class="block-news">
         <div class="container">
-            <h2>Tin tức mới nhất</h2>
+            <h2 class="wow animate__animated animate__fadeIn">Tin tức mới nhất</h2>
 
             <div class="news-grid">
                 <!-- Featured News (Left) -->
-                <div class="news-featured">
+                <div class="news-featured wow animate__animated animate__fadeInLeft">
                     <a href="#" class="news-item news-large">
                         <div class="news-image">
                             <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức nổi bật">
@@ -473,7 +473,7 @@ get_header();
                 </div>
 
                 <!-- News List (Right) -->
-                <div class="news-list">
+                <div class="news-list wow animate__animated animate__fadeInRight">
                     <a href="#" class="news-item news-horizontal">
                         <div class="news-image">
                             <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">

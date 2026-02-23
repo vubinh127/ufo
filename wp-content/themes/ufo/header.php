@@ -40,32 +40,8 @@
             <div class="collapse navbar-collapse menu-custom justify-content-end flex-shrink-0" id="navbarNav">
                 
                 <?php ufo_menu('main-menu') ?>
-                <ul id="menu-main-menu" class="navbar-nav menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/" id="brandDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Khóa học
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="brandDropdown">
-                            <li><a class="dropdown-item" href="/brand?section=1">목공의 마음</a></li>
-                            <li><a class="dropdown-item" href="/brand?section=2">목공의 전문성</a></li>
-                            <li><a class="dropdown-item" href="/brand?section=3">온열 목공간</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Sự kiện</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Tài liệu</a>
-                    </li>
-                </ul>
-                <?php 
+
+                <?php
                 $button_lien_he = get_field('button_lien_he', 'option');
                 if(!empty($button_lien_he)){ ?>
                     <a class="btn contact bg-8433D3" href="<?php echo $button_lien_he['url'] ?>">

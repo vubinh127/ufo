@@ -30,6 +30,22 @@ jQuery(document).ready(function($) {
     $('.navbar-collapse').on('hidden.bs.collapse', function() {
         $('body').css('overflow', '');
     });
+
+    $('.main-menu .menu-item-has-children > a').on('click', function(e) {
+        e.preventDefault();
+        const $parent = $(this).parent();
+        const isOpen = $parent.hasClass('open');
+
+        $parent.siblings('.menu-item-has-children').removeClass('open');
+
+        $parent.toggleClass('open', !isOpen);
+    });
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.menu-item-has-children').length) {
+            $('.main-menu .menu-item-has-children').removeClass('open');
+        }
+    });
 });
 
 var swiperBanner = new Swiper(".banner-swiper", {
