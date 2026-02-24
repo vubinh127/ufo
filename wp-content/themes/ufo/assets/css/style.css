@@ -144,10 +144,6 @@ header .main-menu ul.menu > li > a {
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-    color: rgba(27, 17, 90, 0.5);
-}
-
-header .main-menu ul.menu > li.current_page_item > a {
     color: var(--color-1B115A);
 }
 
@@ -161,11 +157,6 @@ header .main-menu .menu-item-has-children > a::after {
     margin-left: 9px;
     display: inline-block;
     vertical-align: middle;
-    opacity: 0.5;
-}
-
-header .main-menu .menu-item-has-children.current_page_item > a::after {
-    opacity: 1;
 }
 
 header .main-menu .sub-menu {
