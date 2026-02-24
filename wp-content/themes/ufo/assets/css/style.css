@@ -159,10 +159,14 @@ header .main-menu .menu-item-has-children > a::after {
     vertical-align: middle;
 }
 
+header .main-menu ul.menu > li:hover .sub-menu{
+    display: block;
+}
+
 header .main-menu .sub-menu {
     display: none;
     position: absolute;
-    top: calc(100% + 14px);
+    top: 21px;
     left: 0;
     background: #fff;
     list-style: none;
