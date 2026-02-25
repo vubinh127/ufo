@@ -35,7 +35,8 @@ get_header();
                 <h1>Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
             </div>
             <div class="image wow animate__animated animate__fadeInLeft">
-                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/thumbnail_ufo.png" alt="">
+                <iframe src="https://drive.google.com/file/d/1fFT4T4EGx0Qp6k9yXq8CZgc70dH_1gbT/preview" allowfullscreen frameborder="0"></iframe>
+                <div style="position:absolute; top:0; right:0; width:60px; height:60px;"></div>
             </div>
             <div class="text animate__animated animate__fadeInRight wow">
                 <h1 class="d-none d-lg-block">Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>

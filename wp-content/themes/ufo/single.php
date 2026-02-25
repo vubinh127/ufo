@@ -34,10 +34,13 @@ get_header();
                             <span><?php echo get_the_time('H:i'); ?></span>
                             <span><?php echo get_the_date('d/m/Y'); ?></span>
                         </div>
-                        <div class="detail-content">
+
+                        <div class="image">
                             <?php if (has_post_thumbnail()) { ?>
                                 <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo $title ?>">
                             <?php } ?>
+                        </div>
+                        <div class="detail-content">
                             <?php the_content(); ?>
                         </div>
                     </div>
@@ -47,17 +50,6 @@ get_header();
                             $form_register_post = get_field('form_register_post', 'option');
                             echo do_shortcode($form_register_post);
                             ?>
-                            <form action="" class="search-form">
-                                <div class="block-input">
-                                    <label class="form-label">Họ và tên</label>
-                                    <input type="text" class="form-control custom-input" placeholder="Nguyễn Văn A">
-                                </div>
-                                <div class="block-input">
-                                    <label class="form-label">Số điện thoại</label>
-                                    <input type="text" class="form-control custom-input" placeholder="012345678">
-                                </div>
-                                <a href="#" class="btn btn-register bg-8433D3">Đăng ký ngay</a>
-                            </form>
                         </div>
                     </div>
                 </div>

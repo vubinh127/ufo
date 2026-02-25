@@ -55,50 +55,6 @@ if (!empty($banner)) {
         if (!empty($form)) { ?>
             <div class="form-contact w-100">
                 <?php echo do_shortcode($form); ?>
-                <form class="search-form">
-                    <div class="block-input">
-                        <label class="form-label">Họ và tên</label>
-                        <input type="text" class="form-control custom-input" placeholder="Nguyễn Văn A">
-                    </div>
-
-                    <div class="row block-input">
-                        <div class="col-md-6">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control custom-input" placeholder="example@gmail.com">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Số điện thoại</label>
-                            <input type="text" class="form-control custom-input" placeholder="012345678">
-                        </div>
-                    </div>
-
-                    <div class="block-input">
-                        <label class="form-label">Khu vực sinh sống</label>
-                        <select class="form-select custom-select">
-                            <option>Hà Nội</option>
-                            <option>TP.HCM</option>
-                            <option>Đà Nẵng</option>
-                        </select>
-                    </div>
-
-                    <div class="block-input">
-                        <label class="form-label">Khóa học quan tâm</label>
-                        <select class="form-select custom-select">
-                            <option>Tiếng Hàn Sơ cấp 1</option>
-                            <option>Tiếng Hàn Sơ cấp 2</option>
-                        </select>
-                    </div>
-
-                    <div class="block-input">
-                        <label class="form-label">Hãy cho UFO biết bạn cần gì nhé</label>
-                        <textarea class="form-control custom-textarea" rows="4" placeholder="Nhập..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-submit bg-8433D3 w-100">
-                        Submit
-                    </button>
-
-                </form>
             </div>
         <?php } ?>
     </div>

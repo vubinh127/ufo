@@ -7,7 +7,7 @@ get_header();
             <div class="image">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
             </div>
-            <div class="text d-none d-lg-block">
+            <div class="text d-lg-block">
                 <h1>
                     <?php
                     if (is_category()) {
