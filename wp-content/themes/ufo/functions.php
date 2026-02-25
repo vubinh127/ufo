@@ -52,6 +52,7 @@ if (!function_exists('ufo_loadstyle')) {
         wp_enqueue_style('ufo-google-font', 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap', array(), null);
         wp_enqueue_style('ufo-animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
         wp_enqueue_style('ufo-style-css', get_template_directory_uri() . '/assets/css/style.css');
+        wp_enqueue_style('ufo-custom-css', get_template_directory_uri() . '/assets/css/custom.css');
 
         //js
         wp_enqueue_script('ufo-popper-js', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js', array('jquery'), true);
