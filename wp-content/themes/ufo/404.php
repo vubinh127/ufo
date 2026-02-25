@@ -2,32 +2,45 @@
 get_header();
 ?>
 <div id="content">
+    <section id="main-content" class="page-404 d-flex align-items-center">
+        <div class="container text-center">
 
+            <div class="error-wrapper">
 
-    <section id="main-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <?php
-                    _e('<h2>404 NOT FOUND</h2>', 'alpine');
-                    _e('<p>The article you were looking for was not found, but maybe try looking again!</p>', 'alpine');
-                    ?>
+                <h1 class="error-code">404</h1>
+
+                <h2 class="error-title">
+                    <?php _e('Oops! Trang không tồn tại', 'alpine'); ?>
+                </h2>
+
+                <p class="error-desc">
+                    <?php _e('Có thể trang đã bị xoá hoặc đường dẫn không chính xác.', 'alpine'); ?>
+                </p>
+
+                <div class="error-actions mt-4">
+                    <a href="<?php echo get_home_url(); ?>" class="btn bg-8433D3 me-3">
+                        Về trang chủ
+                    </a>
                 </div>
-                <div class="col-lg-12">
-                    <section class="section__form--search">
-                        <div class="container">
-                            <form class="row" action="<?php echo get_home_url(); ?>/" method="get">
-                                <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="s" name="s" value="" placeholder="Bạn muốn tìm gì?">
-                                </div>
-                                <div class="col-lg-3">
-                                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                                </div>
-                            </form>
+
+                <div class="search-box mt-5">
+                    <form class="row justify-content-center" action="<?php echo get_home_url(); ?>/" method="get">
+                        <div class="col-lg-6 col-md-8 col-10">
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       name="s"
+                                       placeholder="Bạn muốn tìm gì?">
+                                <button type="submit" class="btn btn-dark px-4">
+                                    Tìm kiếm
+                                </button>
+                            </div>
                         </div>
-                    </section>
+                    </form>
                 </div>
+
             </div>
+
         </div>
     </section>
 
