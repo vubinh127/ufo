@@ -120,7 +120,7 @@ function register_post_type_courses() {
         'labels'             => $labels,
         'public'             => true,
         'menu_icon'          => 'dashicons-welcome-learn-more',
-        'supports'           => ['title','editor','thumbnail','excerpt','revisions','author'],
+        'supports'           => ['title','editor','thumbnail', 'revisions'],
         'has_archive'        => true,
         'rewrite'            => ['slug' => 'courses'],
         'show_in_rest'       => true, // quan trọng để dùng Gutenberg + API
@@ -171,7 +171,7 @@ function register_post_type_document() {
         'labels'        => $labels,
         'public'        => true,
         'menu_icon'     => 'dashicons-media-document',
-        'supports'      => ['title','editor','thumbnail','excerpt','revisions','author'],
+        'supports'      => ['title','editor','thumbnail', 'revisions'],
         'has_archive'   => true,
         'rewrite'       => ['slug' => 'documents'],
         'show_in_rest'  => true,

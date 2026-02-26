@@ -48,153 +48,88 @@
 
 <section class="courses-section document-section bg-gradient-1 bg-gradient-2">
     <div class="container">
-        <div class="grid-courses">
-            <a href="">
-                <div class="course-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="detail">
-                            <div class="title">
-                                <div class="lang kr">Tiếng Hàn</div>
-                            </div>
-                            <div class="skill">
-                                <p>Giáo trình Tiếng Hàn Sejong
-                                    (Sejong Korean)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="">
-                <div class="course-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="detail">
-                            <div class="title">
-                                <div class="lang kr">Tiếng Hàn</div>
-                            </div>
-                            <div class="skill">
-                                <p>Giáo trình Tiếng Hàn Sejong
-                                    (Sejong Korean)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="">
-                <div class="course-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="detail">
-                            <div class="title">
-                                <div class="lang kr">Tiếng Hàn</div>
-                            </div>
-                            <div class="skill">
-                                <p>Giáo trình Tiếng Hàn Sejong
-                                    (Sejong Korean)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="">
-                <div class="course-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="detail">
-                            <div class="title">
-                                <div class="lang kr">Tiếng Hàn</div>
-                            </div>
-                            <div class="skill">
-                                <p>Giáo trình Tiếng Hàn Sejong
-                                    (Sejong Korean)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="">
-                <div class="course-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="detail">
-                            <div class="title">
-                                <div class="lang kr">Tiếng Hàn</div>
-                            </div>
-                            <div class="skill">
-                                <p>Giáo trình Tiếng Hàn Sejong
-                                    (Sejong Korean)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="">
-                <div class="course-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="detail">
-                            <div class="title">
-                                <div class="lang kr">Tiếng Hàn</div>
-                            </div>
-                            <div class="skill">
-                                <p>Giáo trình Tiếng Hàn Sejong
-                                    (Sejong Korean)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
+        <?php
+        if (have_posts()) { ?>
+            <div class="grid-courses">
+                <?php
+                while (have_posts()) {
+                    the_post();
 
-        </div>
-        <nav class="custom-pagination" aria-label="Page navigation">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
-                                <g transform="translate(10 0) scale(-1 1)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M0.292987 13.7279C-0.097532 14.1184 -0.0975301 14.7516 0.292992 15.1421L0.528682 15.3778C0.919208 15.7683 1.55237 15.7683 1.9429 15.3778L8.77825 8.54241C9.16877 8.15188 9.16877 7.51872 8.77824 7.12819L1.94279 0.292797C1.55226 -0.0977259 0.919095 -0.0977237 0.528572 0.292802L0.292879 0.528497C-0.0976439 0.919022 -0.0976411 1.55219 0.292883 1.94271L5.47839 7.1282C5.86891 7.51872 5.86892 8.15188 5.4784 8.5424L0.292987 13.7279Z"
-                                        fill="#232227" />
-                                </g>
-                            </svg>
+                    $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/assets/images/course_1.png';
+                    $terms = get_the_terms(get_the_ID(), 'document_category');
+                ?>
 
-                        </span>
+                    <a href="<?php echo esc_url(get_permalink()); ?>">
+                        <div class="course-item">
+                            <div class="image">
+                                <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+                            </div>
+                            <div class="info">
+                                <div class="detail">
+                                    <div class="title">
+                                        <?php
+                                        if ($terms && !is_wp_error($terms)) {
+                                            $term = $terms[0];
+                                        ?>
+                                            <div class="lang kr">
+                                                <?php echo esc_html($term->name); ?>
+                                            </div>
+                                        <?php }; ?>
+                                    </div>
+                                    <div class="skill">
+                                        <p><?php echo esc_html(get_the_title()); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292987 13.7279C-0.097532 14.1184 -0.0975301 14.7516 0.292992 15.1421L0.528682 15.3778C0.919208 15.7683 1.55237 15.7683 1.9429 15.3778L8.77825 8.54241C9.16877 8.15188 9.16877 7.51872 8.77824 7.12819L1.94279 0.292797C1.55226 -0.0977259 0.919095 -0.0977237 0.528572 0.292802L0.292879 0.528497C-0.0976439 0.919022 -0.0976411 1.55219 0.292883 1.94271L5.47839 7.1282C5.86891 7.51872 5.86892 8.15188 5.4784 8.5424L0.292987 13.7279Z" fill="#232227" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+                <?php }
+                ?>
+            </div>
+            <?php
+            global $wp_query;
+            $current = max(1, get_query_var('paged'));
+            $total   = $wp_query->max_num_pages;
+
+            if ($total > 1) {
+            ?>
+                <nav class="custom-pagination" aria-label="Page navigation">
+                    <ul class="pagination">
+
+                        <?php if ($current > 1) { ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="<?php echo esc_url(get_pagenum_link($current - 1)); ?>">
+                                    ‹
+                                </a>
+                            </li>
+                        <?php }; ?>
+
+                        <?php for ($i = 1; $i <= $total; $i++) { ?>
+                            <li class="page-item <?php echo ($i == $current) ? 'active' : ''; ?>">
+                                <a class="page-link"
+                                    href="<?php echo esc_url(get_pagenum_link($i)); ?>">
+                                    <?php echo esc_html($i); ?>
+                                </a>
+                            </li>
+                        <?php }; ?>
+
+                        <?php if ($current < $total) { ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="<?php echo esc_url(get_pagenum_link($current + 1)); ?>">
+                                    ›
+                                </a>
+                            </li>
+                        <?php }; ?>
+
+                    </ul>
+                </nav>
+            <?php };
+        } else { ?>
+            <p>Không có tài liệu nào.</p>
+        <?php } ?>
+
     </div>
 </section>
 <?php get_footer(); ?>

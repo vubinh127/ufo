@@ -21,7 +21,6 @@ get_header();
                     }
                     ?>
                 </h1>
-                <p>Tìm các bài viết và sự kiện mới nhất của chúng tôi</p>
                 <div>
                     <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-3">
                         <div class="search-pill">
@@ -31,7 +30,7 @@ get_header();
                                 </svg>
                             </span>
 
-                            <input type="text" placeholder="Nhập..." />
+                             <input type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="Nhập...">
                         </div>
                         <button type="submit" class="btn contact bg-8433D3" href="">
                             Tìm kiếm

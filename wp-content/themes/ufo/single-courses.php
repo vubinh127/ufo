@@ -3,7 +3,7 @@
     <div class="container">
         <div class="banner">
             <div class="image">
-                <img src="/assets/images/banner.png" alt="">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
             </div>
         </div>
     </div>
@@ -128,11 +128,6 @@
                     </div>
                 </div>
 
-                <div class="course-price">
-                    <span class="price-label">HỌC PHÍ</span>
-                    <span class="price-value">6,999,999</span>
-                </div>
-
                 <p class="course-note">
                     Đăng ký để nhận được những ưu đãi về học phí siêu hấp dẫn từ UFO
                 </p>
@@ -151,7 +146,7 @@
             <a href="">
                 <div class="course-item">
                     <div class="image">
-                        <img src="/assets/images/course_1.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
                         <div class="overlay">
                             <div class="student-count">12k+ học viên</div>
                             <div class="sale">SALE 30%</div>
@@ -182,7 +177,7 @@
             <a href="">
                 <div class="course-item">
                     <div class="image">
-                        <img src="/assets/images/course_2.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_2.png" alt="">
                         <div class="overlay">
                             <div class="student-count">12k+ học viên</div>
                             <div class="sale">SALE 30%</div>
@@ -213,7 +208,7 @@
             <a href="">
                 <div class="course-item">
                     <div class="image">
-                        <img src="/assets/images/course_3.png" alt="">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_3.png" alt="">
                         <div class="overlay">
                             <div class="student-count">12k+ học viên</div>
                             <div class="sale">SALE 30%</div>

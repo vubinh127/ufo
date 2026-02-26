@@ -2112,7 +2112,7 @@ nav.custom-pagination .pagination .page-item.active a {
     margin-bottom: 20px;
 }
 
-.block-detail-event .sign-up-block {
+.block-detail-event .sign-up-block, .detail-document-section .sign-up-block {
     max-width: 491px;
     width: 100%;
     height: max-content;
