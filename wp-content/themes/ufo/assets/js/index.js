@@ -49,9 +49,14 @@ jQuery(document).ready(function($) {
 });
 
 var swiperBanner = new Swiper(".banner-swiper", {
+    autoplay: {
+        delay: 2500,
+    },
     pagination: {
         el: ".swiper-pagination",
     },
+    loop: true,
+    slidesPerView:1,
 });
 
 var swiperPartner = new Swiper(".partner-slide", {

@@ -90,10 +90,12 @@ a:hover, button:hover {
             0px 1px 4px -1px rgba(127, 16, 235, 0.95),
             inset 0px 1px 0px rgba(255, 255, 255, 0.33),
             0px 0px 0px 1px #7F10EB;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .bg-8433D3:hover {
     color: var(--color-ffffff);
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
 }
 
 input:focus,
@@ -669,6 +671,7 @@ header .navbar-light .navbar-toggler svg path {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     position: relative;
+    z-index: 1;
 }
 
 .block-information .core-value .value-item {
@@ -765,12 +768,26 @@ section h2 {
     border-radius: 36px;
     background: var(--color-ffffff);
     padding: 14px 14px 27px;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .block-courses .box-courses .single-course .image {
     margin-bottom: 19px;
     border-radius: 36px;
     max-height: 344px;
+    overflow: hidden;
+}
+
+.block-courses .box-courses .single-course:hover,
+.block-teachers .single-teacher:hover {
+    box-shadow: 0 12px 40px rgba(132, 51, 211);
+    transform: translateY(-6px);
+}
+
+.block-courses .box-courses .single-course:hover .image img,
+.block-teachers .single-teacher:hover .image img {
+    transition: transform 0.4s ease;
+    transform: scale(1.08);
 }
 
 .block-courses .box-courses .single-course .info {
@@ -807,6 +824,12 @@ section h2 {
     padding: 10px;
     width: 141px;
     border-radius: 10px;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.block-courses .box-courses .single-course a.btn:hover ,
+.block-teachers .list-teacher .single-teacher a.btn:hover {
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12)
 }
 
 .block-teachers {
@@ -823,6 +846,7 @@ section h2 {
     box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
     border-radius: 36px;
     padding: 9px 10px 0;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .block-teachers .single-teacher .image {
@@ -1255,12 +1279,24 @@ section h2 {
     border-radius: 36px;
     background: var(--color-ffffff);
     padding: 14px 14px 22px;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.courses-section .grid-courses .course-item:hover {
+    box-shadow: 0 12px 40px rgba(132, 51, 211);
+    transform: translateY(-6px);
+}
+
+.courses-section .grid-courses .course-item:hover .image img {
+    transition: transform 0.4s ease;
+    transform: scale(1.08);
 }
 
 .courses-section .grid-courses .course-item .image {
     margin-bottom: 21px;
     border-radius: 36px;
     max-height: 344px;
+    overflow: hidden;
     position: relative;
 }
 
@@ -1900,20 +1936,22 @@ nav.custom-pagination .pagination .page-item.active a {
 
 .block-contact .custom-input,
 .block-contact .custom-textarea,
-.block-detail-event .custom-input {
+.block-detail-event .custom-input,
+.block-detail-course .custom-input {
     background-color: var(--color-F9F9F9);
     border-radius: 16px;
     padding: 20px 18px;
     border: none;
     font-size: 16px;
-    line-height: 19ox;
+    line-height: 19px;
     color: var(--color-8B8B8B);
     font-weight: 400;
 }
 
 .block-contact .custom-input:focus,
 .block-contact .custom-textarea:focus,
-.block-detail-event .custom-input:focus {
+.block-detail-event .custom-input:focus,
+.block-detail-course .custom-input:focus {
     box-shadow: none;
     outline: none;
 }
@@ -1930,12 +1968,14 @@ nav.custom-pagination .pagination .page-item.active a {
 }
 
 .block-contact .search-form .block-input,
-.block-detail-event .search-form .block-input {
+.block-detail-event .search-form .block-input,
+.block-detail-course .search-form .block-input {
     margin-bottom: 32px;
 }
 
 .block-contact .search-form .block-input br,
-.block-detail-event .search-form .block-input br {
+.block-detail-event .search-form .block-input br,
+.block-detail-course .search-form .block-input br {
     display: none;
 }
 
@@ -2146,7 +2186,7 @@ nav.custom-pagination .pagination .page-item.active a {
 
 .block-detail-event .detail-content p,
 .block-detail-event .detail-content p a{
-    font-size: 20px;
+    font-size: 16px;
     color: var(--color-212121);
 }
 
