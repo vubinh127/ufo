@@ -5,7 +5,7 @@
         <div class="footer-content">
             <div class="footer-col footer-info">
                 <div class="logo">
-                    <img src="<?php echo $logo ? $logo['url'] : get_stylesheet_directory_uri().'/assets/images/logo.png' ?>" alt=""/>
+                    <img src="<?php echo !empty($logo) ? $logo['url'] : get_stylesheet_directory_uri().'/assets/images/logo.png' ?>" alt=""/>
                 </div>
                 <h3>CÔNG TY TNHH YBM VIỆT NAM</h3>
                 <div class="address">

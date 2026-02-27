@@ -19,7 +19,7 @@
         <nav class="main-menu navbar navbar-expand-xl navbar-light justify-content-between align-items-center">
             <div class="d-flex align-items-center justify-content-between w-100">
                 <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                    <img src="<?php echo $logo ? $logo['url'] : get_stylesheet_directory_uri().'/assets/images/logo.png' ?>" alt=""/>
+                    <img src="<?php echo !empty($logo) ? $logo['url'] : get_stylesheet_directory_uri().'/assets/images/logo.png' ?>" alt=""/>
                 </a>
                 <button
                         class="navbar-toggler"
