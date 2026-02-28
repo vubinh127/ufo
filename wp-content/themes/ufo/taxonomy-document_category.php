@@ -68,13 +68,14 @@
                                 <div class="detail">
                                     <div class="title">
                                         <?php
-                                        if ($terms && !is_wp_error($terms)) {
-                                            $term = $terms[0];
+                                        if (!empty($terms) && !is_wp_error($terms)) {
+                                            echo '<div class="title">';
+                                            foreach ($terms as $term) {
+                                                echo '<div class="lang eng ' . $term->slug . '">' . $term->name . '</div>';
+                                            }
+                                            echo '</div>';
+                                        }
                                         ?>
-                                            <div class="lang kr">
-                                                <?php echo esc_html($term->name); ?>
-                                            </div>
-                                        <?php }; ?>
                                     </div>
                                     <div class="skill">
                                         <p><?php echo esc_html(get_the_title()); ?></p>
@@ -125,10 +126,10 @@
 
                     </ul>
                 </nav>
-            <?php };
-        } else { ?>
-            <p>Không có tài liệu nào.</p>
-        <?php } ?>
+        <?php };
+        } else {
+            echo '<p>Không có tài liệu nào.</p>';
+        } ?>
 
     </div>
 </section>

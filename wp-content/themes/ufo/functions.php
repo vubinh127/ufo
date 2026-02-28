@@ -120,7 +120,7 @@ function register_post_type_courses() {
         'labels'             => $labels,
         'public'             => true,
         'menu_icon'          => 'dashicons-welcome-learn-more',
-        'supports'           => ['title','editor','thumbnail', 'revisions'],
+        'supports'           => ['title', 'thumbnail', 'revisions'],
         'has_archive'        => true,
         'rewrite'            => ['slug' => 'courses'],
         'show_in_rest'       => true, // quan trọng để dùng Gutenberg + API
@@ -200,3 +200,20 @@ function register_taxonomy_document_category() {
     );
 }
 add_action('init', 'register_taxonomy_document_category');
+
+function filter_courses_by_category($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('courses')) {
+
+        if (!empty($_GET['course_category'])) {
+
+            $query->set('tax_query', [
+                [
+                    'taxonomy' => 'course_category',
+                    'field'    => 'slug',
+                    'terms'    => sanitize_text_field($_GET['course_category']),
+                ]
+            ]);
+        }
+    }
+}
+add_action('pre_get_posts', 'filter_courses_by_category');
