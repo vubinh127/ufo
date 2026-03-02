@@ -1,562 +1,351 @@
 <?php
+
 /**
  * Template Name: Home
  */
 get_header();
+
+$block_banner = get_field('block_banner');
+
+if (!empty($block_banner) && is_array($block_banner) && !empty($block_banner['list_banner'])) {
 ?>
     <section class="block-banner">
         <div class="container">
             <div class="swiper banner-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <?php
+                    foreach ($block_banner['list_banner'] as $banner) {
+                        echo '<div class="swiper-slide">
                         <div class="image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
+                            <img src="' . $banner['banner']['url'] . '" alt="' . $banner['banner']['title'] . '">
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner.png" alt="">
-                        </div>
-                    </div>
+                    </div>';
+                    }
+                    ?>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
+<?php }
 
+$block_information = get_field('block_information');
+if (!empty($block_information) && is_array($block_information)) { ?>
     <section class="block-information">
         <div class="content">
             <div class="text d-lg-none text-center wow animate__animated animate__fadeInRight">
-                <h1>Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
+                <?php echo !empty($block_information['title']) ? '<h1>' . $block_information['title'] . '</h1>' : '' ?>
             </div>
             <div class="image wow animate__animated animate__fadeInLeft">
                 <iframe src="https://drive.google.com/file/d/1fFT4T4EGx0Qp6k9yXq8CZgc70dH_1gbT/preview" allowfullscreen frameborder="0"></iframe>
                 <div style="position:absolute; top:0; right:0; width:60px; height:60px;"></div>
             </div>
             <div class="text animate__animated animate__fadeInRight wow">
-                <h1 class="d-none d-lg-block">Trung Tâm Đào Tạo<br> Ngoại Ngữ UFO</h1>
-                <p>Một sản phẩm thuộc tập đoàn giáo dục YBM</p>
-                <p>Các chứng chỉ ngoại ngữ như IELTS, TOPIK đang dần trở nên có sức ảnh hưởng với học sinh - sinh viên
-                    Việt Nam, chúng tôi xuất hiện là trung tâm đào tạo ngoại ngữ chuyên nghiệp, nổi bật trong lĩnh vực
-                    IELTS và TOPIK với mô hình học tập và ôn luyện khác biệt từ chuyên gia học thuật đầu ngành tại Hàn
-                    Quốc, học viên tại Trung tâm Ngoại ngữ UFO được thúc đẩy chinh phục mục tiêu hiệu quả - nhanh
-                    chóng.</p>
-                <a class="btn bg-8433D3" href="">
-                    Tìm hiểu thêm
-                </a>
+                <?php
+                echo !empty($block_information['title']) ? '<h1 class="d-none d-lg-block">' . $block_information['title'] . '</h1>' : '';
+
+                if (!empty($block_information['description'])) {
+                    echo $block_information['description'];
+                }
+
+                if (!empty($block_information['link_load_more'])) {
+                    echo ' <a class="btn bg-8433D3" href="' . $block_information['link_load_more']['url'] . '">
+                            Tìm hiểu thêm
+                        </a>';
+                }
+                ?>
             </div>
         </div>
     </section>
+<?php }
 
+$block_courses = get_field('block_courses');
+
+if (!empty($block_courses) && is_array($block_courses)) { ?>
     <section class="block-courses bg-gradient-1 bg-gradient-2">
         <div class="container">
-            <h2 class="wow animate__animated animate__fadeIn">Khóa học của chúng tôi</h2>
+            <?php
+            echo !empty($block_courses['title']) ? '<h2 class="wow animate__animated animate__fadeIn">' . $block_courses['title'] . '</h2>' : '';
 
-            <div class="list-courses wow animate__animated animate__fadeInUp">
-                <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-korea-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-korea" type="button" role="tab" aria-controls="pills-korea"
-                                aria-selected="true">Khóa tiếng Hàn
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-english-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-english" type="button" role="tab" aria-controls="pills-english"
-                                aria-selected="false">Khóa tiếng Anh
-                        </button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-korea" role="tabpanel"
-                         aria-labelledby="pills-korea-tab">
-                        <div class="box-courses">
-                            <div class="single-course">
-                                <div class="image">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_1.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="title">Sơ cấp 1</p>
-                                    <p>Làm quen và thành thạo bảng chữ cái tiếng Hàn (Hangeul).</p>
-                                    <a href="" class="btn">
-                                        Xem thêm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-course">
-                                <div class="image">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_2.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="title">Sơ cấp 2</p>
-                                    <p>Mở rộng vốn từ vựng và cấu trúc ngữ pháp sơ cấp nâng cao.</p>
-                                    <a href="" class="btn">
-                                        Xem thêm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-course">
-                                <div class="image">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_3.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="title">Trung cấp 1</p>
-                                    <p>Mở rộng vốn từ và cấu trúc câu trung cấp.</p>
-                                    <a href="" class="btn">
-                                        Xem thêm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-course">
-                                <div class="image">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_4.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="title">Trung cấp 2</p>
-                                    <p>Mở rộng kỹ năng giao tiếp ở cấp độ học thuật và
-                                        xã hội chuyên sâu.</p>
-                                    <a href="" class="btn">
-                                        Xem thêm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-course">
-                                <div class="image">
-                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/course_5.png" alt="">
-                                </div>
-                                <div class="info">
-                                    <p class="title">Cao cấp </p>
-                                    <p>Phát triển năng lực sử dụng tiếng Hàn ở mức cao,
-                                        phục vụ học thuật.
-                                    </p>
-                                    <a href="" class="btn">
-                                        Xem thêm
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-english" role="tabpanel" aria-labelledby="pills-english-tab">
+            if (!empty($block_courses['list_courses'])) { ?>
+                <div class="list-courses wow animate__animated animate__fadeInUp">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <?php
+                        foreach ($block_courses['list_courses'] as $key => $course) { ?>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link <?php echo $key === 0 ? 'active' : '' ?>" id="pills-korea-tab-<?php echo $key ?>" data-bs-toggle="pill"
+                                    data-bs-target="#pills-korea-<?php echo $key ?>" type="button" role="tab" aria-controls="pills-korea-<?php echo $key ?>"
+                                    aria-selected="true"><?php echo $course['tab_name'] ?>
+                                </button>
+                            </li>
+                        <?php }
+                        ?>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <?php
+                        foreach ($block_courses['list_courses'] as $key => $course) { ?>
+                            <div class="tab-pane fade show <?php echo $key === 0 ? 'active' : '' ?>" id="pills-korea-<?php echo $key ?>" role="tabpanel"
+                                aria-labelledby="pills-korea-tab-<?php echo $key ?>">
+                                <?php
+                                if (!empty($course['courses'])) { ?>
+                                    <div class="box-courses">
+                                        <?php
+                                        foreach ($course['courses'] as $courseSingle) {
+                                            $course_id = $courseSingle->ID;
+                                            $thumbnail = get_the_post_thumbnail_url($course_id);
+                                            $permalink = get_permalink($course_id);
+                                            $general_infor = get_field('general_infor', $course_id);
+                                            $description = $general_infor['description'];
 
+                                        ?>
+                                            <div class="single-course">
+                                                <div class="image">
+                                                    <img src="<?php echo $thumbnail ?: get_stylesheet_directory_uri() . '/assets/images/course_1.png'; ?>" alt="<?php echo esc_attr(get_the_title($course_id)); ?>">
+                                                </div>
+                                                <div class="info">
+                                                    <p class="title"><?php echo esc_html(get_the_title($course_id)); ?></p>
+                                                    <p>
+                                                        <?php
+                                                        if ($description) {
+                                                            echo wp_trim_words(wp_strip_all_tags($description), 40);
+                                                        } else {
+                                                            echo wp_trim_words(get_the_excerpt($course_id), 40);
+                                                        }
+                                                        ?>
+                                                    </p>
+                                                    <a href="<?php echo esc_url($permalink); ?>" class="btn">
+                                                        Xem thêm
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                        ?>
+                                    </div>
+                                <?php }
+                                ?>
+
+                            </div>
+                        <?php }
+                        ?>
                     </div>
                 </div>
-            </div>
+            <?php }
+            ?>
         </div>
     </section>
+<?php }
 
+$block_teachers = get_field('block_teachers');
+
+if (!empty($block_teachers) && is_array($block_teachers)) { ?>
     <section class="block-teachers">
         <div class="container">
-            <h2 class="wow animate__animated animate__fadeIn">Đội ngũ giáo viên của chúng tôi</h2>
-            <div class="list-teacher wow animate__animated animate__slideInUp">
-                <div class="single-teacher">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="profile">
-                            <p class="title">Sơ cấp 1</p>
-                            <ul class="skill-list">
-                                <li>Tốt nghiệp Giỏi Sư phạm Tiếng Anh – Đại học Ngoại ngữ</li>
-                                <li>8.0 IELTS</li>
-                                <li>6 NĂM KINH NGHIỆM giảng dạy tiếng Anh, IELTS</li>
-                                <li>Chứng chỉ giảng dạy CELTA do Cambridge cấp</li>
-                            </ul>
-                        </div>
-                        <a href="" class="btn">
-                            Xem thêm
-                        </a>
-                    </div>
-                </div>
+            <?php
+            echo !empty($block_teachers['title']) ? '<h2 class="wow animate__animated animate__fadeIn">' . $block_teachers['title'] . '</h2>' : '';
 
-                <div class="single-teacher">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher_2.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="profile">
-                            <p class="title">Sơ cấp 1</p>
-                            <ul class="skill-list">
-                                <li>Tốt nghiệp Giỏi Sư phạm Tiếng Anh – Đại học Ngoại ngữ</li>
-                                <li>8.0 IELTS</li>
-                                <li>6 NĂM KINH NGHIỆM giảng dạy tiếng Anh, IELTS</li>
-                                <li>Chứng chỉ giảng dạy CELTA do Cambridge cấp</li>
-                            </ul>
+            if (!empty($block_teachers['teacher'])) { ?>
+                <div class="list-teacher wow animate__animated animate__slideInUp">
+                    <?php
+                    foreach ($block_teachers['teacher'] as $teacher) {
+                        $teacher_id = $teacher->ID;
+                        $thumbnail = get_the_post_thumbnail_url($teacher_id);
+                        $permalink = get_permalink($teacher_id);
+                        $list_skill = get_field('list_skill', $teacher_id);
+                    ?>
+                        <div class="single-teacher">
+                            <div class="image">
+                                <img src="<?php echo $thumbnail ?: get_stylesheet_directory_uri() . '/assets/images/teacher.png'; ?>" alt="<?php echo esc_attr(get_the_title($teacher_id)); ?>">
+                            </div>
+                            <div class="info">
+                                <div class="profile">
+                                    <p class="title"><?php echo esc_html(get_the_title($teacher_id)); ?></p>
+                                    <?php
+                                    if (!empty($list_skill)) { ?>
+                                        <ul class="skill-list">
+                                            <?php
+                                            foreach ($list_skill as $skill) {
+                                                echo '<li>' . $skill['skill'] . '</li>';
+                                            }
+                                            ?>
+                                        </ul>
+                                    <?php }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
-                        <a href="" class="btn">
-                            Xem thêm
-                        </a>
-                    </div>
+                    <?php }
+                    ?>
                 </div>
+            <?php }
+            ?>
 
-                <div class="single-teacher">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher_3.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="profile">
-                            <p class="title">Sơ cấp 1</p>
-                            <ul class="skill-list">
-                                <li>Tốt nghiệp Giỏi Sư phạm Tiếng Anh – Đại học Ngoại ngữ</li>
-                                <li>8.0 IELTS</li>
-                                <li>6 NĂM KINH NGHIỆM giảng dạy tiếng Anh, IELTS</li>
-                                <li>Chứng chỉ giảng dạy CELTA do Cambridge cấp</li>
-                            </ul>
-                        </div>
-                        <a href="" class="btn">
-                            Xem thêm
-                        </a>
-                    </div>
-                </div>
-
-                <div class="single-teacher">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/teacher_4.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="profile">
-                            <p class="title">Sơ cấp 1</p>
-                            <ul class="skill-list">
-                                <li>Tốt nghiệp Giỏi Sư phạm Tiếng Anh – Đại học Ngoại ngữ</li>
-                                <li>8.0 IELTS</li>
-                                <li>6 NĂM KINH NGHIỆM giảng dạy tiếng Anh, IELTS</li>
-                                <li>Chứng chỉ giảng dạy CELTA do Cambridge cấp</li>
-                            </ul>
-                        </div>
-                        <a href="" class="btn">
-                            Xem thêm
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
+<?php }
 
+$block_achievements = get_field('block_achievements');
+
+if (!empty($block_partner) && is_array($block_partner)) { ?>
     <section class="block-achievements">
         <div class="container">
-            <h2 class="wow animate__animated animate__fadeIn">Bảng thành tích của học viên UFO</h2>
-            <div class="list-achievements wow animate__animated animate__bounceInUp">
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
+            <?php
+            echo !empty($block_achievements['title']) ? '<h2 class="wow animate__animated animate__fadeIn">' . $block_achievements['title'] . '</h2>' : '';
 
-                        <a href="" class="see-detail">
-                            Xem chi tiết
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="21" viewBox="0 0 34 21" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.999999 12.0045C0.447715 12.0045 -7.94821e-07 11.5567 -8.43104e-07 11.0045L-9.92798e-07 9.29216C-1.04108e-06 8.73987 0.447715 8.29216 0.999999 8.29216L26.1852 8.29216L20.3802 3.01325C19.9439 2.6165 19.9439 1.93031 20.3802 1.53357L21.7804 0.26023C22.1619 -0.086646 22.7445 -0.086648 23.126 0.260226L33.1864 9.40864C33.6227 9.80539 33.6227 10.4916 33.1864 10.8883L23.126 20.0367C22.7445 20.3835 22.1619 20.3835 21.7804 20.0366L20.3802 18.7633C19.9439 18.3666 19.9439 17.6804 20.3802 17.2836L26.1856 12.0045L0.999999 12.0045Z" fill="#D7D7D7"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
+            if (!empty($block_achievements['list_achievements'])) { ?>
+                <div class="list-achievements wow animate__animated animate__bounceInUp">
+                    <?php
+                    foreach ($block_achievements['list_achievements'] as $achievement) { ?>
+                        <div class="achievement-item">
+                            <div class="image">
+                                <img src="<?php echo !empty($achievement['image']['url']) ? $achievement['image']['url'] : '' ?>" alt="<?php echo !empty($achievement['name']) ? $achievement['name'] : '' ?>">
+                                <div class="score">
+                                    <span><?php echo !empty($achievement['score']) ? $achievement['score'] : '' ?></span>
+                                    <?php echo !empty($achievement['sub_title_score']) ? $achievement['sub_title_score'] : '' ?>
+                                </div>
+                            </div>
+                            <div class="name">
+                                <?php echo !empty($achievement['name']) ? $achievement['name'] : '' ?>
+                            </div>
                         </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
+                    <?php }
+                    ?>
                 </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-                <div class="achievement-item">
-                    <div class="image">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/82e88dfd77e504ba4cf373ec12fbac2200945572.jpg" alt="">
-                        <div class="score">
-                            <span>8.0</span>
-                            IELTS
-                        </div>
-                    </div>
-                    <div class="name">
-                        Nguyễn Đoàn Anh Khoa
-                    </div>
-                </div>
-            </div>
+            <?php }
+            ?>
         </div>
     </section>
+<?php }
 
+$block_partner = get_field('block_partner');
+
+if (!empty($block_partner) && is_array($block_partner)) { ?>
     <section class="block-partner">
-        <h2>Đối tác của UFO</h2>
-        <div class="list-partners">
-            <div class="container">
-                <div class="swiper partner-slide">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_2.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_3.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_4.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_5.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_6.png" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/partner_7.png" alt="">
-                            </div>
+        <?php
+        echo !empty($block_partner['title']) ? '<h2>' . $block_partner['title'] . '</h2>' : '';
+
+        if (!empty($block_partner['list_partner'])) { ?>
+            <div class="list-partners">
+                <div class="container">
+                    <div class="swiper partner-slide">
+                        <div class="swiper-wrapper">
+                            <?php
+                            foreach ($block_partner['list_partner'] as $partner) {
+                                echo '<div class="swiper-slide">
+                                <div class="image">
+                                    <img src="' . $partner['image']['url'] . '" alt="' . $partner['image']['title'] . '">
+                                </div>
+                            </div>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php }
+        ?>
     </section>
+<?php }
 
+$block_posts = get_field('block_posts');
 
+if (!empty($block_posts) && is_array($block_posts)) { ?>
     <section class="block-news">
         <div class="container">
-            <h2 class="wow animate__animated animate__fadeIn">Tin tức mới nhất</h2>
+            <?php
+            echo !empty($block_posts['title']) ? '<h2 class="wow animate__animated animate__fadeIn">' . $block_posts['title'] . '</h2>' : '';
 
-            <div class="news-grid">
-                <!-- Featured News (Left) -->
-                <div class="news-featured wow animate__animated animate__fadeInLeft">
-                    <a href="#" class="news-item news-large">
-                        <div class="news-image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức nổi bật">
+            if (!empty($block_posts['list_posts'])) {
+                $posts = $block_posts['list_posts'];
+            ?>
+                <div class="news-grid">
+                    <!-- Featured News (Left) -->
+                    <div class="news-featured wow animate__animated animate__fadeInLeft">
+                        <?php
+                        if (!empty($posts[0])) {
+                            $post_id = $posts[0]->ID;
+                        ?>
+                            <a href="<?php echo get_permalink($post_id); ?>" class="news-item news-large">
+                                <div class="news-image">
+                                    <img src="<?php echo get_the_post_thumbnail_url($post_id) ?: get_stylesheet_directory_uri() . '/assets/images/image_new.png'; ?>" alt="<?php echo esc_attr(get_the_title($post_id)); ?>">
+                                </div>
+                                <div class="news-content">
+                                    <h3><?php echo esc_html(get_the_title($post_id)); ?></h3>
+                                    <div class="news-date">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                            fill="none">
+                                            <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
+                                                fill="#8B8B8B" />
+                                        </svg>
+                                        <span><?php echo get_the_date('d/m/Y', $post_id); ?></span>
+                                    </div>
+                                </div>
+                            </a>
+                        <?php }
+                        ?>
+                        <!-- Small News Items -->
+                        <div class="news-small-grid">
+                            <?php
+                            for ($i = 1; $i <= 3; $i++) {
+                                if (!empty($posts[$i])) {
+                                    $post_id = $posts[$i]->ID;
+                            ?>
+                                    <a href="<?php echo get_permalink($post_id); ?>" class="news-item news-small">
+                                        <div class="news-image">
+                                            <img src="<?php echo get_the_post_thumbnail_url($post_id) ?: get_stylesheet_directory_uri() . '/assets/images/image_new_2.png'; ?>" alt="<?php echo esc_attr(get_the_title($post_id)); ?>">
+                                        </div>
+                                        <div class="news-content">
+                                            <h4><?php echo esc_html(get_the_title($post_id)); ?></h4>
+                                            <p class="d-lg-none"><?php echo wp_trim_words(get_the_excerpt($post_id), 40); ?></p>
+                                            <div class="news-date">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                                    fill="none">
+                                                    <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
+                                                        fill="#8B8B8B" />
+                                                </svg>
+                                                <span><?php echo get_the_date('d/m/Y', $post_id); ?></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <?php }
+                                ?>
+                            <?php }
+                            ?>
                         </div>
-                        <div class="news-content">
-                            <h3>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h3>
-                            <div class="news-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                     fill="none">
-                                    <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                          fill="#8B8B8B"/>
-                                </svg>
-                                <span>2/5/2026</span>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
 
-                    <!-- Small News Items -->
-                    <div class="news-small-grid">
-                        <a href="#" class="news-item news-small">
-                            <div class="news-image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new_2.png" alt="Tin tức">
-                            </div>
-                            <div class="news-content">
-                                <h4>101+ từ vựng tiếng Anh về....</h4>
-                                <p class="d-lg-none">Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm
-                                    mới 2026...</p>
-                                <div class="news-date">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                         fill="none">
-                                        <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                              fill="#8B8B8B"/>
-                                    </svg>
-                                    <span>2/5/2026</span>
+                    <!-- News List (Right) -->
+                    <div class="news-list wow animate__animated animate__fadeInRight">
+                        <?php
+                        for ($i = 4; $i < count($posts); $i++) {
+                            $post_id = $posts[$i]->ID;
+                        ?>
+                            <a href="<?php echo get_permalink($post_id); ?>" class="news-item news-horizontal">
+                                <div class="news-image">
+                                    <img src="<?php echo get_the_post_thumbnail_url($post_id) ?: get_stylesheet_directory_uri() . '/assets/images/image_new.png'; ?>" alt="<?php echo esc_attr(get_the_title($post_id)); ?>">
                                 </div>
-                            </div>
-                        </a>
-
-                        <a href="#" class="news-item news-small">
-                            <div class="news-image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new_2.png" alt="Tin tức">
-                            </div>
-                            <div class="news-content">
-                                <h4>101+ từ vựng tiếng Anh về....</h4>
-                                <p class="d-lg-none">Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm
-                                    mới 2026...</p>
-                                <div class="news-date">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                         fill="none">
-                                        <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                              fill="#8B8B8B"/>
-                                    </svg>
-                                    <span>2/5/2026</span>
+                                <div class="news-content">
+                                    <h4><?php echo esc_html(get_the_title($post_id)); ?></h4>
+                                    <p><?php echo wp_trim_words(get_the_excerpt($post_id), 25); ?></p>
+                                    <div class="news-date">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                            fill="none">
+                                            <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
+                                                fill="#8B8B8B" />
+                                        </svg>
+                                        <span><?php echo get_the_date('d/m/Y', $post_id); ?></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-
-                        <a href="#" class="news-item news-small">
-                            <div class="news-image">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
-                            </div>
-                            <div class="news-content">
-                                <h4>101+ từ vựng tiếng Anh về....</h4>
-                                <p class="d-lg-none">Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm
-                                    mới 2026...</p>
-                                <div class="news-date">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                         fill="none">
-                                        <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                              fill="#8B8B8B"/>
-                                    </svg>
-                                    <span>2/5/2026</span>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        <?php }
+                        ?>
                     </div>
                 </div>
-
-                <!-- News List (Right) -->
-                <div class="news-list wow animate__animated animate__fadeInRight">
-                    <a href="#" class="news-item news-horizontal">
-                        <div class="news-image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
-                        </div>
-                        <div class="news-content">
-                            <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
-                            <p>Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm mới 2026...</p>
-                            <div class="news-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                     fill="none">
-                                    <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                          fill="#8B8B8B"/>
-                                </svg>
-                                <span>2/5/2026</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="#" class="news-item news-horizontal">
-                        <div class="news-image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
-                        </div>
-                        <div class="news-content">
-                            <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
-                            <p>Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm mới 2026...</p>
-                            <div class="news-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                     fill="none">
-                                    <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                          fill="#8B8B8B"/>
-                                </svg>
-                                <span>2/5/2026</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="#" class="news-item news-horizontal">
-                        <div class="news-image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
-                        </div>
-                        <div class="news-content">
-                            <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
-                            <p>Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm mới 2026...</p>
-                            <div class="news-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                     fill="none">
-                                    <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                          fill="#8B8B8B"/>
-                                </svg>
-                                <span>2/5/2026</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="#" class="news-item news-horizontal">
-                        <div class="news-image">
-                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image_new.png" alt="Tin tức">
-                        </div>
-                        <div class="news-content">
-                            <h4>101+ từ vựng tiếng Anh về Tết Nguyên Dán phố biến nhất</h4>
-                            <p>Chỉ còn một khoảng thời gian ngắn nữa là chúng ta sẽ bước sang năm mới 2026...</p>
-                            <div class="news-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                     fill="none">
-                                    <path d="M13.333 0C14.8058 0 16 1.19424 16 2.66699V13.333C16 14.8058 14.8058 16 13.333 16H2.66699C1.19424 16 0 14.8058 0 13.333V2.66699C0 1.19424 1.19424 0 2.66699 0H13.333ZM1.77734 3.55566V13.333C1.77734 13.8239 2.17608 14.2227 2.66699 14.2227H13.333C13.8239 14.2227 14.2227 13.8239 14.2227 13.333V3.55566H1.77734ZM11.5557 5.33301C12.0466 5.33304 12.4443 5.73175 12.4443 6.22266C12.4441 6.71337 12.0464 7.1113 11.5557 7.11133H4.44434C3.95364 7.11124 3.5559 6.71334 3.55566 6.22266C3.55566 5.73178 3.95349 5.33309 4.44434 5.33301H11.5557Z"
-                                          fill="#8B8B8B"/>
-                                </svg>
-                                <span>2/5/2026</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <?php }
+            ?>
         </div>
     </section>
+<?php }
+?>
+
 <?php
 get_footer();

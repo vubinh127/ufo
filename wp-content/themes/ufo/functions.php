@@ -217,3 +217,36 @@ function filter_courses_by_category($query) {
     }
 }
 add_action('pre_get_posts', 'filter_courses_by_category');
+
+function register_post_type_teacher() {
+
+    $labels = [
+        'name'               => 'Teachers',
+        'singular_name'      => 'Teacher',
+        'menu_name'          => 'Teachers',
+        'name_admin_bar'     => 'Teacher',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Teacher',
+        'new_item'           => 'New Teacher',
+        'edit_item'          => 'Edit Teacher',
+        'view_item'          => 'View Teacher',
+        'all_items'          => 'All Teachers',
+        'search_items'       => 'Search Teachers',
+        'not_found'          => 'No teachers found.',
+        'not_found_in_trash' => 'No teachers found in Trash.',
+    ];
+
+    $args = [
+        'labels'        => $labels,
+        'public'        => true,
+        'menu_icon'     => 'dashicons-businessperson',
+        'supports'      => ['title', 'editor', 'thumbnail', 'revisions'],
+        'has_archive'   => true,
+        'rewrite'       => ['slug' => 'teachers'],
+        'show_in_rest'  => true,
+        'menu_position' => 7,
+    ];
+
+    register_post_type('teacher', $args);
+}
+add_action('init', 'register_post_type_teacher');
